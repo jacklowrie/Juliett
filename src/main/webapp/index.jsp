@@ -5,19 +5,24 @@
 	<title>Juliett Home</title>
 	<meta name="generator" content="BBEdit 10.5" />
 	
-	<!-- import our css -->
+	<!-- import css -->
 	<link href="css/juliett.css" rel="stylesheet">
 	<link href="css/bootstrap.css" rel="<stylesheet>">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bootstrap-superhero.css" rel="<stylesheet>">
+	<link href="css/bootstrap-superhero.min.css" rel="<stylesheet>">
 	
-	<!-- import jquery and our js-->
+	<!-- import jquery and js-->
 	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<script type="text/javascript" src="js/juliett.js"></script>
+	
 </head>
 
 <body>
 	<div class="jumbotron">
-  		<h1>Jumbotron</h1>
-  		<p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  		<h1>NU Course Planner</h1>
+  		<p>This is the best Northwestern course planner.</p>
   		<p><a class="btn btn-primary btn-lg">Learn more</a></p>
 	</div>
 </body>
