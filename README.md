@@ -52,7 +52,12 @@ click "Browse Workspace..." for Working Direcotry, choose project name:
 ![2](https://raw.githubusercontent.com/JBLowrie/Juliett/master/readme_image/6.png)
 
 #### 4. Run
-Ok, everything almost done. Make sure every time you use external tools to run the program.
+Ok, everything almost done. Make sure you use external tools to run the program.
+
+If you have some problem like "permission denied", go to the directory holds "run.sh", and typein the command:
+
+    chmod a+x run.sh
+
 
 The program will run a server on loalhost, you can visit it in your borwser with link: 
 	
