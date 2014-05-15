@@ -5,7 +5,9 @@
 ### Set up
 	
 Host: heroku
+
 Server: Tomcat
+
 Management: Maven
 
 
@@ -22,7 +24,10 @@ Otherwise, find a location and run:
 	
 #### 2. Import it in Eclipse
 
-Using eclipse EE as example. Right click in project Explorer, click on "import". 
+I strongly recommend to use eclipse EE. [--> Download](https://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/keplersr2)  
+(If you are using eclipse SE, make sure you have maven installed....).
+
+Right click in project Explorer, click on "import" 
 ![1](https://raw.githubusercontent.com/JBLowrie/Juliett/master/readme_image/1.png)
 
 Then choose Maven -> Existing Maven Projects. Browse Directory in Step 1.
