@@ -7,6 +7,7 @@
 	
 	<!-- import our css -->
 	<link href="css/juliett.css" rel="stylesheet">
+	<link href="css/bootstrap.css" rel="<stylesheet>">
 	
 	<!-- import jquery and our js-->
 	<script type="text/javascript" src="js/jquery.js"></script>
@@ -14,14 +15,15 @@
 </head>
 
 <body>
-	<h id = "teamname">Team Juliett</h>
-	<div>
-		Put in your name:<input id="username">
-		<button id="nametest" onclick>send</button>
-		 
-		 
+	<div class="jumbotron">
+  		<h1>Jumbotron</h1>
+  		<p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  		<p><a class="btn btn-primary btn-lg">Learn more</a></p>
 	</div>
 </body>
+
+
+
 <%
     // This is a scriptlet.  Notice that the "date"
     // variable we declare here is available in the
