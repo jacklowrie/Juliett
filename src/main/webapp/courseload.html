@@ -21,37 +21,83 @@
 </head>
 
 <body>
-<div class="navbar navbar-default">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#">Juliett</a>
-  </div>
-  <div class="navbar-collapse collapse navbar-responsive-collapse">
-    <ul class="nav navbar-nav">
-      <li><a href="index.html">Home</a></li>
-      <li><a class="active" href="#">Enter Courses</a></li>
-    </ul>
-    <form class="navbar-form navbar-left">
-      <input type="text" class="form-control col-lg-8" placeholder="Search">
-    </form>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="#">Link</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li class="divider"></li>
-          <li><a href="#">Separated link</a></li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-</div>
+	<div class="navbar navbar-default">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Juliett</a>
+		</div>
+		<div class="navbar-collapse collapse navbar-responsive-collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="index.html">Home</a></li>
+				<li><a class="active" href="courseload.html">Enter Courses</a></li>
+			</ul>
+		</div>
+	</div> <!-- navbar -->
+	
+<form class="form-horizontal">
+  <fieldset>
+    <legend>Select Courses</legend>
+    <div class="form-group">
+      <label for="select" class="col-lg-2 control-label">Class 1</label>
+      <div class="col-lg-10">
+        <select class="form-control" id="select">
+        	<option></option>
+        	<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+        </select>
+      </div>
+      <br>
+      <label for="select" class="col-lg-2 control-label">Class 2</label>
+      <div class="col-lg-10">
+        <select class="form-control" id="select">
+        	<option></option>
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+        </select>
+      </div>
+      <br>
+      <label for="select" class="col-lg-2 control-label">Class 3</label>
+      <div class="col-lg-10">
+        <select class="form-control" id="select">
+			<option></option>
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+        </select>
+      </div>
+      <br>
+      <label for="select" class="col-lg-2 control-label">Class 4</label>
+      <div class="col-lg-10">
+        <select class="form-control" id="select">
+          	<option></option>
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+        </select>
+      </div>     
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button class="btn btn-default">add more classes</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+
 </body>
 </html>
