@@ -22,26 +22,26 @@
 
 <body> 
 <a name ="startpage"></a>
-	<div class="jumbotron">
+	<div class="jumbotron" id="aboutus">
 
 		<h1>Schedule for you!</h1>
 		<p>
-			Are your still struggling with arranging your courses for next quarter? 
-			<br>Here, you just need to enter some basic information and personal preference. 
-			<br>We'll find the best course schedules for you!
+			Are your still struggling with arranging your courses for next quarter? <br>
+			Here, you just need to enter some basic information and personal preference. <br>
+			We'll find the best course schedules for you!<br>
 		</p>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<a href="#loc_time" class = "btn btn-primary btn-lg">Get Started</a>
-
+		<a href="#loc_time" class = "btn btn-primary btn-lg" id="getstarted">Get Started</a>		
+		<p><br>
+			Here's how it works:<br>
+			First We take some basic information about your lifestyle.<br>
+			(screenshot)<br><br><br><br><br><br>
+			Then, we get your course preferences.  We only need the names of the courses! We'll show you<br>
+			which time to take the class based on the other classes you take and when you want classes to start/end.<br>
+			(screenshot)<br><br><br><br><br><br>
+			Finally, we work our magic and send back to you a few schedules that work based on your preferences!<br>
+			From there, all you have to do is put those classes/times into your shopping cart on CAESAR and hit register.<br>
+			We're not a substitute for CAESAR, but we do make that hellhole a bit less painful. Good luck and happy course-hunting!
+		</p>
 		<br>
 		<br>
 		<br>
@@ -52,66 +52,82 @@
 <br><br><br>
 	<form class="form-horizontal" id="userinfo">
 		<fieldset>
-		<legend class="col-lg-offset-1">Location & Time Preference</legend>
+		<legend class="col-lg-offset-1">User Information</legend>
 		<div class="form-group">
 		  <label class="col-lg-2 control-label" for="focusedInput">Name</label>
 		  	<div class="col-lg-6">
-		  		<input class="form-control" id="focusedInput" type="text" value="">
+		  		<input class="form-control" id="username" type="text" value="">
 		  	</div>
 		</div>
 		
     	<div class="form-group">
-      		<label for="select" class="col-lg-2 control-label">Location</label>
-      		<div class="col-lg-6">
-        	<select class="form-control" id="select">
-          		<option>North</option>
-          		<option>South</option>
-         	    <option>Chicago</option>
-          		<option>On campus</option>
-          		<option>I don't know</option>
-        		</select>
-        		<br>
-      		</div>
-    	</div>
+			<label class="col-lg-2 control-label">Residence</label>
+			<div class="col-lg-10">
+				<div class="radio">
+					<label>
+						<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+						North of Kellogg
+					</label>
+				</div>
+				<div class="radio">
+					<label>
+						<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+						South of Kellogg
+					</label>
+				</div>
+				<div class="radio">
+					<label>
+						<input type="radio" name="optionsRadios" id="optionsRadios2" value="option3" checked=""> 
+						I don't mind walking!
+					</label>
+				</div>
+			</div>
+		</div>
 		
 		<div class="form-group">
-		  <label class="col-lg-2 control-label" for="focusedInput">Available Time</label>
-		  	<div class="col-lg-6">
-		  		<input class="form-control" id="focusedInput" type="text" value="">
-		  	</div>
+			<label for="select" class="col-lg-2 control-label">I prefer my day to start after:</label>
+      		<div class="col-lg-6">
+				<select class="form-control" id="select">
+					<option>any time!</option>
+					<option>7am</option>
+					<option>8am</option>
+					<option>9am</option>
+					<option>10am</option>
+					<option>11am</option>
+					<option>12pm</option>
+					<option>1pm</option>
+					<option>2pm</option>
+        		</select>
+      		</div>
+		</div>
+		
+		<div class="form-group">
+			<label for="select" class="col-lg-2 control-label">I prefer my day to end before:</label>
+      		<div class="col-lg-6">
+				<select class="form-control" id="select">
+					<option>any time!</option>
+					<option>12pm</option>
+					<option>1pm</option>
+					<option>2pm</option>
+					<option>3pm</option>
+					<option>4pm</option>
+					<option>5pm</option>
+					<option>6pm</option>	
+					<option>7pm</option>
+        		</select>
+      		</div>
 		</div>
 
 		<div class="form-group">
 			<div class="col-lg-6 col-lg-offset-2">
 			<button class="btn btn-default">reset</button>
-			<a href="#startpage" class="btn btn-primary">Next</a>
+			<a href="courseload.html" class="btn btn-primary" id="to_courseload">Next</a>
 			</div>
 		</div>
 		</fieldset>
 		</div>
 	</form>
 	</div>
-
-
-
-
-
-	<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
 
 
 
