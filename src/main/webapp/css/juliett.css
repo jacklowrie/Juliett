@@ -1,25 +1,98 @@
-.jumbotron{
-    background: url(../img/Northwestern_University_-_lake_fill.jpg)  no-repeat center center fixed;
-   -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    display: compact;
-    margin-bottom: 0px
-}
+@@ -8,7 +8,10 @@
+	<!-- import our css -->
+	
 
-.jumbotron h1 {
-  color: black;
-}
-.jumbotron p {
-  margin-bottom: 15px;
-  font-size: 23px;
-  font-weight: 200;
-  color: black;
-}
+	<link href="css/bootstrap-superhero.css" rel="stylesheet">
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	
+	<link href="css/juliett.css" rel="stylesheet">
+	
+	<!-- import jquery and our js-->
+@@ -17,45 +20,45 @@
+</head>
+
+<body> 
+<div class="jumbotron">
+  <h1>Schedule for you!</h1>
+  <p>Are your still struggling with arranging your courses for next quarter? 
+  <br>Here, you just need to enter some basic information and personal prenference. 
+  <br>We'll find the best course schedules for you!</p>
+  <p><a class="btn btn-primary btn-lg" herf="#startpoint1">Try it »</a></p>
+</div>
 
 
-#teamname{
-	font-size: 200%;
-	font-weight: bold;
-}
+
+
+	<a id="startpoint1"></a>
+	<h id = "teamname">Team Juliett</h>
+	<div>
+		Put in your name:<input id="username">
+		<button id="nametest" onclick>send</button>
+		
+	<div class="jumbotron">
+		<h1>Schedule for you!</h1>
+		<p>
+			Are you still struggling with arranging your courses for next quarter? 
+			<br>Here, you just need to enter some basic information and personal preference. 
+			<br>We'll find the best course schedules for you!
+		</p>
+		<p><a class="btn btn-primary btn-lg" herf="#startpoint1">Get Started</a></p>
+		background-image: url(http://upload.wikimedia.org/wikipedia/commons/0/0c/Northwestern_University_-_lake_fill.jpg);
+	</div>
+
+	<form class="form-horizontal" id="userinfo">
+		<div class="form-group">
+		  <label class="control-label" for="focusedInput">Name</label>
+		  <input class="form-control" id="focusedInput" type="text" value="">
+		</div>
+		
+		<div class="form-group">
+			<fieldset>
+				<label for="control-label" class="focusedInput">Residence</label>
+				<div class="col-lg-10">
+					<select class="form-control" id="select">
+						<option>North</option>
+						<option>South</option>
+					</select>
+					
+		<div class="form-group">
+  			<label class="control-label" for="inputDefault">Major</label>
+  				<input type="text" class="form-control" id="inputDefault">
+		</div>
+				</div>
+				<div class="form-group">
+					<div class="col-lg-10 col-lg-offset-2">
+					<button class="btn btn-default">reset</button>
+					<button type="submit" class="btn btn-primary">Submit</button>
+					</div>
+				</div>
+				
+			</fieldset>
+		</div>
+	</form>
+
+
+
+
+</body>
+
+
+</body>
+
+<%
+    // This is a scriptlet.  Notice that the "date"
+    // variable we declare here is available in the
+    // embedded expression later on.
+    System.out.println( "Evaluating date now" );
+    java.util.Date date = new java.util.Date();
+%>	
+Hello!  The time is now 
+<%
+    // This scriptlet generates HTML output
+    out.println( String.valueOf( date ));
+	out.println( "<br>Your machine's address is " );
+	out.println( request.getRemoteHost());
+	
+%>
+</html>
