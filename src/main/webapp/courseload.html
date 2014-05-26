@@ -1,108 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="utf-8" />
+    
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            Course Input
+        </title>
+        <!-- Bootstrap stylesheets -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap.css.map" rel="stylesheet">
+        <!-- Superhero Theme stylesheets -->
+        <link href="css/bootstrap-superhero.css" rel="stylesheet">
+        <link href="css/bootstrap-superhero.min.css" rel="stylesheet">
+        <!-- Juliett Stylesheet (our customizations) -->
+        <link href="css/juliett.css" rel="stylesheet">
+    </head>
+    
+    <body>
+        <div class="navbar navbar-default">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <span class="icon-bar">
+                    </span>
+                    <span class="icon-bar">
+                    </span>
+                    <span class="icon-bar">
+                    </span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    Juliett
+                </a>
+            </div>
+            <div class="navbar-collapse collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="index.html">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a class="active" href="courseload.html">
+                            Enter Courses
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- navbar -->
+        <form class="form-horizontal">
+            <fieldset>
+                <legend>
+                    Select Courses
+                </legend>
 
-	<title>Course Input</title>
-	
-	<!-- Bootstrap stylesheets -->
-	<link href="css/bootstrap.css" rel="stylesheet">
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/bootstrap.css.map" rel="stylesheet">
-	
-	<!-- Superhero Theme stylesheets -->
-	<link href="css/bootstrap-superhero.css" rel="stylesheet">
-	<link href="css/bootstrap-superhero.min.css" rel="stylesheet">
-	
-	<!-- Juliett Stylesheet (our customizations) -->
-	<link href="css/juliett.css" rel="stylesheet">
-</head>
+                    <br>
+                    <label for="select" class="col-lg-3 control-label">
+                        Please Enter A Class (ex. EECS 214) :
+                    </label>
 
-<body>
-	<div class="navbar navbar-default">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="#">Juliett</a>
-		</div>
-		<div class="navbar-collapse collapse navbar-responsive-collapse">
-			<ul class="nav navbar-nav">
-				<li><a href="index.html">Home</a></li>
-				<li><a class="active" href="courseload.html">Enter Courses</a></li>
-			</ul>
-		</div>
-	</div> <!-- navbar -->
-	
-<form class="form-horizontal">
-  <fieldset>
-    <legend>Select Courses</legend>
-    <div class="form-group">
-      <label for="select" class="col-lg-2 control-label">Class 1</label>
-      <div class="col-lg-10">
-        <select class="form-control" id="select">
-        	<option></option>
-        	<option>1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
-			<option>5</option>
-        </select>
-      </div>
-      <br>
-      <label for="select" class="col-lg-2 control-label">Class 2</label>
-      <div class="col-lg-10">
-        <select class="form-control" id="select">
-        	<option></option>
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
-			<option>5</option>
-        </select>
-      </div>
-      <br>
-      <label for="select" class="col-lg-2 control-label">Class 3</label>
-      <div class="col-lg-10">
-        <select class="form-control" id="select">
-			<option></option>
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
-			<option>5</option>
-        </select>
-      </div>
-      <br>
-      <label for="select" class="col-lg-2 control-label">Class 4</label>
-      <div class="col-lg-10">
-        <select class="form-control" id="select">
-          	<option></option>
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
-			<option>5</option>
-        </select>
-      </div>     
-    </div>
-    <div class="form-group">
-      <div class="col-lg-10 col-lg-offset-2">
-        <button class="btn btn-default">add more classes</button>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-    </div>
-  </fieldset>
-</form>
+                    <div class="col-lg-9">
 
+                            <div class="dropdown">
+                                <div class="input-group" id="search" data-toggle="dropdown">
+                                    <input type="text" class="form-control" placeholder='Add a class'
+                                    id="classSearchBar">
+                                </div>
+                                <ul class="dropdown-menu" role="menu" id="results">
+                                    <li class="listButton" id="add-event">
 
-	<!-- JQuery, Bootstrap JS, and our at end for performance -->
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/juliett.js"></script>
-	
-</body>
+                                    </li>
+                                </ul>
+                            </div><br>
+                            <div id="added-classes">
+                                <!-- added classes -->
+                            </div><br>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-3">
+                           <div id="submit">
+                                <button type="submit" class="btn btn-primary">
+                                    Submit
+                                </button>
+                            </div>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+        <!-- JQuery, Bootstrap JS, and our at end for performance -->
+        <script src="js/jquery.js">
+        </script>
+        <script src="js/bootstrap.js">
+        </script>
+        <script src="js/bootstrap.min.js">
+        </script>
+        <script src="js/juliett.js">
+        </script>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="js/courseload.js">
+        </script>
+    </body>
+
 </html>

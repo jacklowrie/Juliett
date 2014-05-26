@@ -1,5 +1,5 @@
 //Get Started button scrolls down the page to the user info block
-	$("#getstarted").click($(function() {
+	$("#getstarted").click(function() {
              alert('button clicked');
     });
 
