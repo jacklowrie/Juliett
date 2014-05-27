@@ -1,11 +1,11 @@
 package course;
 
 
-public class CourseOutput implements java.io.Serializable{
+public class CourseData implements java.io.Serializable{
    
     public Course[] courseList;
     
-    CourseOutput() {
+    public CourseData() {
     	courseList = new Course[5];
     	courseList[0] = new Course("Math", 1, "14-16");
     	courseList[1] = new Course("Physics", 2, "10-12");
