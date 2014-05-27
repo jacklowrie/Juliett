@@ -29,16 +29,14 @@
 	<div>
 		Put in your name:<input id="username">
 		<button id="nametest" onclick>send</button>
-		
 	<div class="jumbotron">
 		<h1>Schedule for you!</h1>
 		<p>
-			Are you still struggling with arranging your courses for next quarter? 
+			Are your still struggling with arranging your courses for next quarter? 
 			<br>Here, you just need to enter some basic information and personal preference. 
 			<br>We'll find the best course schedules for you!
 		</p>
 		<p><a class="btn btn-primary btn-lg" herf="#startpoint1">Get Started</a></p>
-		background-image: url(http://upload.wikimedia.org/wikipedia/commons/0/0c/Northwestern_University_-_lake_fill.jpg);
 	</div>
 
 	<form class="form-horizontal" id="userinfo">
@@ -55,11 +53,6 @@
 						<option>North</option>
 						<option>South</option>
 					</select>
-					
-		<div class="form-group">
-  			<label class="control-label" for="inputDefault">Major</label>
-  				<input type="text" class="form-control" id="inputDefault">
-		</div>
 				</div>
 				<div class="form-group">
 					<div class="col-lg-10 col-lg-offset-2">
@@ -67,7 +60,6 @@
 					<button type="submit" class="btn btn-primary">Submit</button>
 					</div>
 				</div>
-				
 			</fieldset>
 		</div>
 	</form>
