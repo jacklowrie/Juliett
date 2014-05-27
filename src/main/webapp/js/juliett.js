@@ -33,6 +33,3 @@
 		//set residence var
 		//set start/end time vars
 	});
-	
-//calendar test
-	$('#calendar').weekCalendar();
