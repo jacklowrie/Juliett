@@ -10,12 +10,114 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/bootstrap.css.map" rel="stylesheet">
 	
+	<!-- WeekCalendar Plugin stylesheet -->
+	<link rel='stylesheet' type='text/css' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/smoothness/jquery-ui.css' />
+	<link href="css/jquery.weekcalendar.css" rel="stylesheet">
+	<style type='text/css'>
+
+		body {
+			font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+			margin: 0;
+		}
+	
+		h1 {
+			margin: 0;
+			padding: 0.5em;
+		}
+	
+		p.description {
+			font-size: 0.8em;
+			padding: 1em;
+			position: absolute;
+			top: 3.2em;
+			margin-right: 400px;
+		}
+	
+		#message {
+			font-size: 0.7em;
+			position: absolute;
+			top: 1em; 
+			right: 1em;
+			width: 350px;
+			display: none;
+			padding: 1em;
+			background: #ffc;
+			border: 1px solid #dda;
+		}
+	
+	</style>
+	
 	<!-- Superhero Theme stylesheets -->
 	<link href="css/bootstrap-superhero.css" rel="stylesheet">
 	<link href="css/bootstrap-superhero.min.css" rel="stylesheet">
 	
 	<!-- Juliett Stylesheet (our customizations) -->
 	<link href="css/juliett.css" rel="stylesheet">
+	
+	<script type='text/javascript'>
+		var year = new Date().getFullYear();
+		var month = new Date().getMonth();
+		var day = new Date().getDate();
+
+		var eventData = {
+			events : [
+			   {"id":1, "start": new Date(year, month, day, 12), "end": new Date(year, month, day, 13, 35),"title":"Lunch with Mike"},
+			   {"id":2, "start": new Date(year, month, day, 14), "end": new Date(year, month, day, 14, 45),"title":"Dev Meeting"},
+			   {"id":3, "start": new Date(year, month, day + 1, 18), "end": new Date(year, month, day + 1, 18, 45),"title":"Hair cut"},
+			   {"id":4, "start": new Date(year, month, day - 1, 8), "end": new Date(year, month, day - 1, 9, 30),"title":"Team breakfast"},
+			   {"id":5, "start": new Date(year, month, day + 1, 14), "end": new Date(year, month, day + 1, 15),"title":"Product showcase"}
+			]
+		};
+
+
+	   
+		$(document).ready(function() {
+
+			$('#calendar').weekCalendar({
+				timeslotsPerHour: 4,
+				height: function($calendar){
+					return $(window).height() - $("h1").outerHeight();
+				},
+				eventRender : function(calEvent, $event) {
+					if(calEvent.end.getTime() < new Date().getTime()) {
+						$event.css("backgroundColor", "#aaa");
+						$event.find(".time").css({"backgroundColor": "#999", "border":"1px solid #888"});
+					}
+				},
+				eventNew : function(calEvent, $event) {
+					displayMessage("<strong>Added event</strong><br/>Start: " + calEvent.start + "<br/>End: " + calEvent.end);
+					alert("You've added a new event. You would capture this event, add the logic for creating a new event with your own fields, data and whatever backend persistence you require.");
+				},
+				eventDrop : function(calEvent, $event) {
+					displayMessage("<strong>Moved Event</strong><br/>Start: " + calEvent.start + "<br/>End: " + calEvent.end);
+				},
+				eventResize : function(calEvent, $event) {
+					displayMessage("<strong>Resized Event</strong><br/>Start: " + calEvent.start + "<br/>End: " + calEvent.end);
+				},
+				eventClick : function(calEvent, $event) {
+					displayMessage("<strong>Clicked Event</strong><br/>Start: " + calEvent.start + "<br/>End: " + calEvent.end);
+				},
+				eventMouseover : function(calEvent, $event) {
+					displayMessage("<strong>Mouseover Event</strong><br/>Start: " + calEvent.start + "<br/>End: " + calEvent.end);
+				},
+				eventMouseout : function(calEvent, $event) {
+					displayMessage("<strong>Mouseout Event</strong><br/>Start: " + calEvent.start + "<br/>End: " + calEvent.end);
+				},
+				noEvents : function() {
+					displayMessage("There are no events for this week");
+				},
+				data:eventData
+			});
+
+			function displayMessage(message) {
+				$("#message").html(message).fadeIn();
+			}
+
+			$("<div id=\"message\" class=\"ui-corner-all\"></div>").prependTo($("body"));
+		
+		});
+
+	</script>
 </head>
 
 <body>
@@ -31,32 +133,30 @@
 		<div class="navbar-collapse collapse navbar-responsive-collapse">
 			<ul class="nav navbar-nav">
 				<li><a href="index.html">Home</a></li>
-				<li><a href="courseload.html">Enter Courses</a></li>
-				<li><a class="active" href="schedules.html">Schedules</a></li>
+				<li class="active"><a href="schedules.html">Schedules</a></li>
 			</ul>
 		</div>
 	</div> <!-- navbar -->
 	
-<ul class="nav nav-tabs" style="margin-bottom: 15px;">
-	<li class="active"><a href="#schedule1" data-toggle="tab">Schedule 1</a></li>
-	<li class=""><a href="#profile" data-toggle="tab">Schedule 2</a></li>
-</ul>
 
-<div id="myTabContent" class="tab-content">
-	<div class="tab-pane fade active in" id="schedule1">
-		<p>Best Schedule</p>
+
+	<div>
+		<div id='calendar'></div>
 	</div>
-	<div class="tab-pane fade" id="schedule2">
-		<p>Second best Schedule</p>
-</div> <!-- schedule tabs -->
+
+
+
+
+
+
+
+
+
 
 
 
 	<!-- JQuery, Bootstrap JS, and our at end for performance -->
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/juliett.js"></script>
+
 
 </body>
 </html>
