@@ -1,7 +1,4 @@
 //Get Started button scrolls down the page to the user info block
-	$("#getstarted").click(function() {
-             alert('button clicked');
-    });
 
 
 //student class stores all info about a student using the service except course preferences
