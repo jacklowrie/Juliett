@@ -1,5 +1,14 @@
 (function(window, document, $, undefined) {
 
+    if (typeof String.prototype.startsWith != 'function') {
+        String.prototype.startsWith = function(str) {
+            return this.indexOf(str) == 0;
+        };
+    }
+
+    Number.prototype.clamp = function(min, max) {
+        return Math.min(Math.max(this, min), max);
+    };
     var Caesar;
     Caesar = (function() {
         var base = 'http://vazzak2.ci.northwestern.edu/';
@@ -101,7 +110,7 @@
 
                 // Hold search results in a temporary array of the top 'resultLimit' # of JSON objects
                 var searchResults = [];
-                var resultLimit = 7;
+                var resultLimit = 10;
 
                 // CASE 1: Search form contains 'subject' but no 'catalogNum' - search by subject ONLY
                 if (catalogNum == undefined || catalogNum === "") {
@@ -109,7 +118,7 @@
                     Caesar.getCourses(4540, subject,
                     function(err, courses) {
 
-                        // Iterate through the search results and store the top 7 values
+                        // Iterate through the search results and store the top 10 values
                         $.each(courses,
                         function(index, element) {
                             if (searchResults.length < resultLimit) {
@@ -132,7 +141,7 @@
                     Caesar.getCourses(4540, subject,
                     function(err, courses) {
 
-                        // Iterate through the search results and store the top 7 values that match catalogNum
+                        // Iterate through the search results and store the top 10 values that match catalogNum
                         $.each(courses,
                         function(index, element) {
                             if (searchResults.length < resultLimit && element.catalog_num.startsWith(catalogNum)) {
@@ -142,7 +151,7 @@
 
                         // Add it to the website!
                         $('#results').empty();
-                        $('#results').append('<li class="listButton" id="add-event">Add a custom event</li>');
+
                         $.each(searchResults,
                         function(index, element) {
                             generateList(index, element);
@@ -172,17 +181,14 @@
         }
 
         function removeCourse(e) {
-            $(this).parent().parent().remove();
+            $(this).parent().remove();
         }
 
         // Add the course menu on the left sidebar
         function addCourse(e) {
 
             var courseData = $(this).data("courseData");
-            var labs = courseData.coursecomponent_set;
-            if (labs.length > 0) {
-                console.log(labs);
-            }
+
 
             var skip = false;
             $('.added-class').each(function(index) {
@@ -193,39 +199,55 @@
                 }
             });
             if (skip) return;
-
-            $('#added-classes').append($('<div/>', {
+$('#added-classes').append($('<div/>', {
                 'class': "added-class row panel panel-default"
             }).append(
-
-            $('<a/>', {
-                'class': "col-lg-12"
-            }).append(
-
             $('<div/>', {
-                'class': "col-lg-9 ",
+                'class': "col-lg-12 col-md-12 col-sm-12 col-xs-12"
+            }).append($('<div/>', {
+                'class': "col-lg-12 btn-group prefs",
+                'data-toggle': "buttons"
+            }).append($('<label/>', {
+                'class': "col-lg-6 btn btn-default pref active ",
+                'text': "Mandatory"
+            }).append($('<input/>', {
+                'type': "radio",
+                'name': "options",
+                'id': "option1",
+                'checked': "checked"
+            })), $('<label/>', {
+                'class': "col-lg-6 btn btn-default pref",
+                'text': "Optional"
+            }).append($('<input/>', {
+                'type': "radio",
+                'name': "options",
+                'id': "option2"
+            })))),
+            $('<div/>', {
+                'class': "col-lg-9 text-primary",
                 'text': "Course Title: " + $(this).data("courseData").title
             }), $('<div/>', {
-                'class': "col-lg-9 ",
+                'class': "col-lg-9 text-info",
                 'text': "Section: " + $(this).data("courseData").subject + " " + $(this).data("courseData").catalog_num + "-" + $(this).data("courseData").section
             }), $('<div/>', {
-                'class': "col-lg-9 ",
+                'class': "col-lg-9 text-warning",
+                'text': "Instructor: " + $(this).data("courseData").instructor.name
+            }), $('<div/>', {
+                'class': "col-lg-9 text-success",
                 'text': "Location: " + $(this).data("courseData").room
             }), $('<div/>', {
-                'class': "col-lg-9",
+                'class': "col-lg-9 text-danger",
                 'text': "Time: " + $(this).data("courseData").meeting_days + " " + $(this).data("courseData").start_time + "-" + $(this).data("courseData").end_time
             }), $('<div/>', {
                 'class': "col-lg-3"
-            }).append($('<span/>', {
+            }).append($('<button/>', {
+                'class': "btn btn-info btn-xs",
                 'text': "Remove"
-            })).click(removeCourse))).data('courseData', $(this).data('courseData')));
+            })).click(removeCourse)).data('courseData', $(this).data('courseData')));
+
 
         }
 
-        function returnData(e) {
-            console.log($(this).data("parentData"));
-            console.log($(this).data("labData"));
-        }
 
     });
 }).call(this, window, window.document, window.jQuery);
