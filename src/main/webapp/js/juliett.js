@@ -38,61 +38,62 @@ $(document).ready( function(){
 //Schedules.html (calendar functions)	
 	$("#busybutton").click( function (){
 		var mystruct = [
-			["#m08", 0x0000001],
-			["#m09", 0x0000002],
-			["#m10", 0x0000004],
-			["#m11", 0x0000008],
-			["#m12", 0x0000010],
-			["#m13", 0x0000020],
-			["#m14", 0x0000040],
-			["#m15", 0x0000080],
-			
-			["#t08", 0x0000100],
-			["#t09", 0x0000200],
-			["#t10", 0x0000400],
-			["#t11", 0x0000800],
-			["#t12", 0x0001000],
-			["#t13", 0x0002000],
-			["#t14", 0x0004000],
-			["#t15", 0x0008000],
-			
-			["#w08", 0x0010000],
-			["#w09", 0x0020000],
-			["#w10", 0x0040000],
-			["#w11", 0x0080000],
-			["#w12", 0x0100000],
-			["#w13", 0x0200000],
-			["#w14", 0x0400000],
-			["#w15", 0x0800000],
-			
-			["#r08", 0x01000000],
-			["#r09", 0x02000000],
-			["#r10", 0x04000000],
-			["#r11", 0x08000000],
-			["#r12", 0x10000000],
-			["#r13", 0x20000000],
-			["#r14", 0x40000000],
-			["#r15", 0x80000000],
-			
-			["#f08", 0x0100000000],
-			["#f09", 0x0200000000],
-			["#f10", 0x0400000000],
-			["#f11", 0x0800000000],
-			["#f12", 0x1000000000],
-			["#f13", 0x2000000000],
-			["#f14", 0x4000000000],
-			["#f15", 0x8000000000]
+			["#m08", 0x1, 0x01],
+			["#m09", 0x1, 0x02],
+			["#m10", 0x1, 0x04],
+			["#m11", 0x1, 0x08],
+			["#m12", 0x1, 0x10],
+			["#m13", 0x1, 0x20],
+			["#m14", 0x1, 0x40],
+			["#m15", 0x1, 0x80],
+		
+			["#t08", 0x2, 0x01],
+			["#t09", 0x2, 0x02],
+			["#t10", 0x2, 0x04],
+			["#t11", 0x2, 0x08],
+			["#t12", 0x2, 0x10],
+			["#t13", 0x2, 0x20],
+			["#t14", 0x2, 0x40],
+			["#t15", 0x2, 0x80],
+		
+			["#w08", 0x4, 0x01],
+			["#w09", 0x4, 0x02],
+			["#w10", 0x4, 0x04],
+			["#w11", 0x4, 0x08],
+			["#w12", 0x4, 0x10],
+			["#w13", 0x4, 0x20],
+			["#w14", 0x4, 0x40],
+			["#w15", 0x4, 0x80],
+		
+			["#r08", 0x8, 0x01],
+			["#r09", 0x8, 0x02],
+			["#r10", 0x8, 0x04],
+			["#r11", 0x8, 0x08],
+			["#r12", 0x8, 0x10],
+			["#r13", 0x8, 0x20],
+			["#r14", 0x8, 0x40],
+			["#r15", 0x8, 0x80],
+		
+			["#f08", 0x10, 0x01],
+			["#f09", 0x10, 0x02],
+			["#f10", 0x10, 0x04],
+			["#f11", 0x10, 0x08],
+			["#f12", 0x10, 0x10],
+			["#f13", 0x10, 0x20],
+			["#f14", 0x10, 0x40],
+			["#f15", 0x10, 0x80]
 		];
-		var busy =  parseInt ($("#busyinput").val(), 16) ;
-		$("#myresult").html( busy );
-		for(var i=0; i < mystruct.length; i++)	
-			updateSchedule(mystruct[i][0], mystruct[i][1], busy);
-	});
+		var times =  parseInt ($("#times").val(), 16) ;
+		var days =  parseInt ($("#days").val(), 16) ;
+		
+		$("#myresult").html( 'times ' + times + ' days ' + days );
+			for(var i=0; i < mystruct.length; i++)
+				updateSchedule(mystruct[i][0], mystruct[i][1], mystruct[i][2], days, times);
+		});
 	
-	function updateSchedule(loc, mask, busy){
-		var res = busy & mask;
-		var mytf = (busy & mask) == mask;
-		if ((busy & mask) == mask)
+	function updateSchedule(loc, currentday, currenttime, days, times){			
+		if ( ((currentday & days) == currentday) && 
+			 ((currenttime & times) == currenttime) )
 			$(loc).html("busy");
 		else
 			$(loc).html("");

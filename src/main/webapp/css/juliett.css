@@ -9,10 +9,18 @@
 	#schedpagecontainer{
 		margin-top: 25px;
 	}
-	#busybutton, #busyinput {
-		margin: 10px;
+	#busybutton, #times, #days {
+		margin-right: 10px;
 		
 		font-size: 125%;
-		color: blue;
+		
 		font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	}
+	#busybutton{
+		background: orange;
+		color: white;
+		padding: 5px;
+	}
+	#weekinhex{
+		width: 40%;
 	}
