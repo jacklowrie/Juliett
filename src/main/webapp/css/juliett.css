@@ -3,3 +3,16 @@
 	#userinfolegend {
 		font-size: 32px;
 	}
+
+
+/* schedules.html */
+	#schedpagecontainer{
+		margin-top: 25px;
+	}
+	#busybutton, #busyinput {
+		margin: 10px;
+		
+		font-size: 125%;
+		color: blue;
+		font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	}
