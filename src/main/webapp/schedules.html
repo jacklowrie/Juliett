@@ -10,43 +10,6 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/bootstrap.css.map" rel="stylesheet">
 	
-	<!-- WeekCalendar Plugin stylesheet -->
-	<link rel='stylesheet' type='text/css' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/smoothness/jquery-ui.css' />
-	<link href="css/jquery.weekcalendar.css" rel="stylesheet">
-	<style type='text/css'>
-
-		body {
-			font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
-			margin: 0;
-		}
-	
-		h1 {
-			margin: 0;
-			padding: 0.5em;
-		}
-	
-		p.description {
-			font-size: 0.8em;
-			padding: 1em;
-			position: absolute;
-			top: 3.2em;
-			margin-right: 400px;
-		}
-	
-		#message {
-			font-size: 0.7em;
-			position: absolute;
-			top: 1em; 
-			right: 1em;
-			width: 350px;
-			display: none;
-			padding: 1em;
-			background: #ffc;
-			border: 1px solid #dda;
-		}
-	
-	</style>
-	
 	<!-- Superhero Theme stylesheets -->
 	<link href="css/bootstrap-superhero.css" rel="stylesheet">
 	<link href="css/bootstrap-superhero.min.css" rel="stylesheet">
@@ -57,6 +20,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
 	<div class="navbar navbar-default">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -83,22 +47,278 @@
 
 	
 
+=======
+	<div class="container" id="schedpagecontainer">
+		<h2>Encoded Busy Time in Hex!!</h2>
+		<br>
+		<h4>Days in Hex</h4>
+		<table class="table table-condensed" id="weekinhex">
+			<thead><tr><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th></tr></thead>
+			<tbody><tr><td>0x1</td><td>0x2</td><td>0x4</td><td>0x8</td><td>0x10</td></tr></tbody>
+		</table> <!-- weekday hex guide -->
+		<input size="12" id="days" placeholder="days"/><input size="12" id="times" placeholder="times"/><button id="busybutton">Show Busy</button>
+		<br> 
+		
+		<br><br>
+		<h4>Busy periods in Hex</h4>
+		<div id="myresult">Hex vals</div>
+		<br>
+		
+		<table class="table table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>Time</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th>
+				</tr>
+			</thead>
+		
+			<tbody>
+				<!-- 8am -->
+				<tr>
+					<td rowspan="2"> 8:00am</td>
+					<td id="m080"></td>
+					<td id="t080"></td>
+					<td id="w080"></td>
+					<td id="r080"></td>
+					<td id="f080"></td>
+				</tr>
+				<tr>
+					<td id="m085"></td>
+					<td id="t085"></td>
+					<td id="w085"></td>
+					<td id="r085"></td>
+					<td id="f085"></td>
+				</tr>
+				<!-- 9am-->
+				<tr>
+					<td rowspan="2"> 9:00am</td>
+					<td id="m090"></td>
+					<td id="t090"></td>
+					<td id="w090"></td>
+					<td id="r090"></td>
+					<td id="f090"></td>
+				</tr>
+				<tr>
+					<td id="m095"></td>
+					<td id="t095"></td>
+					<td id="w095"></td>
+					<td id="r095"></td>
+					<td id="f095"></td>
+				</tr>
+>>>>>>> FETCH_HEAD
+
+				<!-- 10am-->
+				<tr>
+					<td rowspan="2"> 10:00am</td>
+					<td id="m100"></td>
+					<td id="t100"></td>
+					<td id="w100"></td>
+					<td id="r100"></td>
+					<td id="f100"></td>
+				</tr>
+				<tr>
+					<td id="m105"></td>
+					<td id="t105"></td>
+					<td id="w105"></td>
+					<td id="r105"></td>
+					<td id="f105"></td>
+				</tr>
+
+				<!-- 11am -->
+				<tr>
+					<td rowspan="2"> 11:00am</td>
+					<td id="m110"></td>
+					<td id="t110"></td>
+					<td id="w110"></td>
+					<td id="r110"></td>
+					<td id="f110"></td>
+				</tr>
+				<tr>
+					<td id="m115"></td>
+					<td id="t115"></td>
+					<td id="w115"></td>
+					<td id="r115"></td>
+					<td id="f115"></td>
+				</tr>
+
+				<!-- 12pm -->
+				<tr>
+					<td rowspan="2"> 12:00pm</td>
+					<td id="m120"></td>
+					<td id="t120"></td>
+					<td id="w120"></td>
+					<td id="r120"></td>
+					<td id="f120"></td>
+				</tr>
+				<tr>
+					<td id="m125"></td>
+					<td id="t125"></td>
+					<td id="w125"></td>
+					<td id="r125"></td>
+					<td id="f125"></td>
+				</tr>
+
+				<!-- 1pm -->
+				<tr>
+					<td rowspan="2"> 1:00pm</td>
+					<td id="m130"></td>
+					<td id="t130"></td>
+					<td id="w130"></td>
+					<td id="r130"></td>
+					<td id="f130"></td>
+				</tr>
+				<tr>
+					<td id="m135"></td>
+					<td id="t135"></td>
+					<td id="w135"></td>
+					<td id="r135"></td>
+					<td id="f135"></td>
+				</tr>
+
+				<!-- 2pm -->
+				<tr>
+					<td rowspan="2"> 2:00pm</td>
+					<td id="m140"></td>
+					<td id="t140"></td>
+					<td id="w140"></td>
+					<td id="r140"></td>
+					<td id="f140"></td>
+				</tr>
+				<tr>
+					<td id="m145"></td>
+					<td id="t145"></td>
+					<td id="w145"></td>
+					<td id="r145"></td>
+					<td id="f145"></td>
+				</tr>
+
+				<!-- 3pm -->
+				<tr>
+					<td rowspan="2"> 3:00pm</td>
+					<td id="m150"></td>
+					<td id="t150"></td>
+					<td id="w150"></td>
+					<td id="r150"></td>
+					<td id="f150"></td>
+				</tr>
+				<tr>
+					<td id="m155"></td>
+					<td id="t155"></td>
+					<td id="w155"></td>
+					<td id="r155"></td>
+					<td id="f155"></td>
+				</tr>
+
+				<!-- 4pm -->
+				<tr>
+					<td rowspan="2"> 4:00pm</td>
+					<td id="m160"></td>
+					<td id="t160"></td>
+					<td id="w160"></td>
+					<td id="r160"></td>
+					<td id="f160"></td>
+				</tr>
+				<tr>
+					<td id="m165"></td>
+					<td id="t165"></td>
+					<td id="w165"></td>
+					<td id="r165"></td>
+					<td id="f165"></td>
+				</tr>
+			
+				<!-- 5pm -->
+				<tr>
+					<td rowspan="2"> 5:00pm</td>
+					<td id="m170"></td>
+					<td id="t170"></td>
+					<td id="w170"></td>
+					<td id="r170"></td>
+					<td id="f170"></td>
+				</tr>
+				<tr>
+					<td id="m175"></td>
+					<td id="t175"></td>
+					<td id="w175"></td>
+					<td id="r175"></td>
+					<td id="f175"></td>
+				</tr>
+			
+				<!-- 6pm -->
+				<tr>
+					<td rowspan="2"> 6:00pm</td>
+					<td id="m180"></td>
+					<td id="t180"></td>
+					<td id="w180"></td>
+					<td id="r180"></td>
+					<td id="f180"></td>
+				</tr>
+				<tr>
+					<td id="m185"></td>
+					<td id="t185"></td>
+					<td id="w185"></td>
+					<td id="r185"></td>
+					<td id="f185"></td>
+				</tr>
+			
+				<!-- 7pm -->
+				<tr>
+					<td rowspan="2"> 7:00pm</td>
+					<td id="m190"></td>
+					<td id="t190"></td>
+					<td id="w190"></td>
+					<td id="r190"></td>
+					<td id="f190"></td>
+				</tr>
+				<tr>
+					<td id="m195"></td>
+					<td id="t195"></td>
+					<td id="w195"></td>
+					<td id="r195"></td>
+					<td id="f195"></td>
+				</tr>
+				<!-- 8pm -->
+				<tr>
+					<td rowspan="2"> 8:00pm</td>
+					<td id="m200"></td>
+					<td id="t200"></td>
+					<td id="w200"></td>
+					<td id="r200"></td>
+					<td id="f200"></td>
+				</tr>
+				<tr>
+					<td id="m205"></td>
+					<td id="t205"></td>
+					<td id="w205"></td>
+					<td id="r205"></td>
+					<td id="f205"></td>
+				</tr>
+			
+				<tr>
+					<td rowspan="2"> 9:00pm</td>
+					<td id="m210"></td>
+					<td id="t210"></td>
+					<td id="w210"></td>
+					<td id="r210"></td>
+					<td id="f210"></td>
+				</tr>
+				<tr>
+					<td id="m215"></td>
+					<td id="t215"></td>
+					<td id="w215"></td>
+					<td id="r215"></td>
+					<td id="f215"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div> <!-- div container -->
 
 
 
 
-
-
-
-
-
-
-	<!-- JQuery, Bootstrap JS, and our at end for performance -->
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/juliett.js"></script>
-
+<!-- JQuery, Bootstrap JS, and our at end for performance -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/juliett.js"></script>
 
 </body>
 </html>

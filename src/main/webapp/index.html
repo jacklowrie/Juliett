@@ -19,34 +19,36 @@
 </head>
 
 <body> 
-<a name ="startpage"></a>
+	<a href="startpage"></a>
 	<div class="container">
 		<div class="jumbotron" id="aboutus">
 
-			<h1>Schedule for you!</h1>
+			<h1>Brutus Course Planner</h1>
 			<p>
 				Are your still struggling with arranging your courses for next quarter? <br>
-				Here, you just need to enter some basic information and personal preference. <br>
-				We'll find the best course schedules for you!<br>
+				Feel like stabbing CAESAR? No need, we'll help you get a good schedule without <br>
+				having to hunt around all the department lists.<br><br>
+				Here, you just need to enter some basic preferences and information, tell us what<br>
+				you want to take, and we'll find the best course schedules for you!<br>
 			</p>
-			<a href="#loc_time" class = "btn btn-primary btn-lg" id="getstarted">Get Started</a>
+			<a href="#getstarted" class = "btn btn-primary btn-lg">Get Started</a>
 		</div> <!-- jumbotron "aboutus" -->
 		<div class="container" id="howto">
 			<h1>Here's how it works:</h1>
+			<h3>Who are you?</h3>
 			<p>
-				<h3>Who are you?</h3>
-				First we take some basic information about your lifestyle.Nothing too intrusive, just your scheduling preferences<br>
+				First we take some basic information about your lifestyle. Nothing too intrusive, just your scheduling preferences<br>
 				and how far you are from your classes.<br>
 				(screenshot)<br><br><br><br><br><br>
 			</p>
+			<h3>What are you taking?</h3>
 			<p>
-				<h3>What are you taking?</h3>
 				Then, we get your course preferences.We only need the names of the courses! We'll show you which time to take the class based<br>
 				on the other classes you take and when you want classes to start/end.<br>
 				(screenshot)<br><br><br><br><br><br>
 			</p>
+			<h3>A gift for you!</h3>
 			<p>
-				<h3>A gift for you!</h3>
 				Finally, we work our magic and send back to you a few schedules that work based on your preferences!<br>
 				From there, all you have to do is put those classes/times into your shopping cart on CAESAR and hit register.<br><br><br><br><br><br><br>
 				We're not a substitute for CAESAR, but we do make that hellhole a bit less painful. Good luck and happy course-hunting!
@@ -54,155 +56,102 @@
 			</p> 
 		</div> <!-- container "howto" -->
 	</div> <!-- container "homepage" -->
-<a name ="loc_time"></a>
-<div class="container">
-	<br><br><br>
-	<div class="jumbotron">
-	<form class="form-horizontal" id="userinfo">
-		<fieldset>
-		<legend class="col-lg-offset-1"><h2>User Information</h2></legend>
-		<div class="form-group">
-		  <label class="col-lg-2 control-label" for="focusedInput">Name</label>
-		  	<div class="col-lg-6">
-		  		<input class="form-control" id="username" type="text" value="">
-		  	</div>
-		</div>
-		
-    	<div class="form-group">
-			<label class="col-lg-2 control-label">Residence</label>
-			<div class="col-lg-10">
-				<div class="radio">
-					<label>
-						<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
-						North of Kellogg
-					</label>
-				</div>
-				<div class="radio">
-					<label>
-						<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-						South of Kellogg
-					</label>
-				</div>
-				<div class="radio">
-					<label>
-						<input type="radio" name="optionsRadios" id="optionsRadios2" value="option3" checked=""> 
-						I don't mind walking!
-					</label>
-				</div>
-			</div>
-		</div>
-		
-		<div class="form-group">
-			<label for="select" class="col-lg-2 control-label">I prefer my day to start after:</label>
-      		<div class="col-lg-6">
-				<select class="form-control" id="select">
-					<option>any time!</option>
-					<option>7am</option>
-					<option>8am</option>
-					<option>9am</option>
-					<option>10am</option>
-					<option>11am</option>
-					<option>12pm</option>
-					<option>1pm</option>
-					<option>2pm</option>
-        		</select>
-      		</div>
-		</div>
-		
-		<div class="form-group">
-			<label for="select" class="col-lg-2 control-label">I prefer my day to end before:</label>
-      		<div class="col-lg-6">
-				<select class="form-control" id="select">
-					<option>any time!</option>
-					<option>12pm</option>
-					<option>1pm</option>
-					<option>2pm</option>
-					<option>3pm</option>
-					<option>4pm</option>
-					<option>5pm</option>
-					<option>6pm</option>	
-					<option>7pm</option>
-        		</select>
-      		</div>
-		</div>
 
-		<div class="form-group">
-			<div class="col-lg-6 col-lg-offset-2">
-			<button class="btn btn-default">reset</button>
-			<a href="courseload.html" class="btn btn-primary" id="to_courseload">Next</a>
-			</div>
-		</div>
-		</fieldset>
-		</div>
-	</form>
-	</div>
-	</div>
-	
-	<div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
-	
+	<a id="getstarted"></a>
 	<div class="container">
-		<form class="form-horizontal">
-		  <fieldset>
-			<legend>Select Courses</legend>
-			<div class="form-group">
-			  <label for="select" class="col-lg-2 control-label">Class 1</label>
-			  <div class="col-lg-10">
-				<select class="form-control" id="select">
-					<option></option>
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-			  </div>
-			  <br>
-			  <label for="select" class="col-lg-2 control-label">Class 2</label>
-			  <div class="col-lg-10">
-				<select class="form-control" id="select">
-					<option></option>
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-			  </div>
-			  <br>
-			  <label for="select" class="col-lg-2 control-label">Class 3</label>
-			  <div class="col-lg-10">
-				<select class="form-control" id="select">
-					<option></option>
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-			  </div>
-			  <br>
-			  <label for="select" class="col-lg-2 control-label">Class 4</label>
-			  <div class="col-lg-10">
-				<select class="form-control" id="select">
-					<option></option>
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-			  </div>     
-			</div>
-			<div class="form-group">
-			  <div class="col-lg-10 col-lg-offset-2">
-				<button class="btn btn-default">add more classes</button>
-				<button type="submit" class="btn btn-primary">Submit</button>
-			  </div>
-			</div>
-		  </fieldset>
-		</form>
-	</div>
+		<br><br><br>
+		<div class="jumbotron">
+			<form class="form-horizontal" id="userinfo">
+				<fieldset>
+					<legend class="col-lg-offset-1" id="userinfolegend">User Information</legend>
+					<div class="form-group">
+						<label class="col-lg-2 control-label" for="username">Name</label>
+						<div class="col-lg-6">
+							<input class="form-control" id="username" type="text" value="">
+						</div>
+					</div> <!-- form-group (name input) -->
+					<div class="form-group">
+						<label class="col-lg-2 control-label">Residence</label>
+						<div class="col-lg-10">
+							<div class="radio">
+								<label for="optionsRadios1">North of Kellogg</label>
+								<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+							</div> <!-- North option -->
+							<div class="radio">
+								<label for="optionsRadios2">South of Kellogg</label>
+								<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							</div> <!-- South option -->
+							<div class="radio">
+								<label for="optionsRadios3">I don't mind walking!</label>
+								<input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" checked="">
+							</div> <!-- No Pref option -->
+						</div>
+					</div> <!-- form-group (residence input) -->
+					<div class="form-group">
+						<label class="col-lg-2 control-label" for="selectstarttime">I prefer my day to start after:</label>
+						<div class="col-lg-6">
+							<select class="form-control" id="selectstarttime">
+								<option>any time!</option>
+								<option>7am</option>
+								<option>8am</option>
+								<option>9am</option>
+								<option>10am</option>
+								<option>11am</option>
+								<option>12pm</option>
+								<option>1pm</option>
+								<option>2pm</option>
+							</select>
+						</div> <!-- select start time -->
+					</div> <!-- form-group (start-time input) -->
+					<div class="form-group">
+						<label class="col-lg-2 control-label" for="selectendtime">I prefer my day to end before:</label>
+						<div class="col-lg-6">
+							<select class="form-control" id="selectendtime">
+								<option>any time!</option>
+								<option>12pm</option>
+								<option>1pm</option>
+								<option>2pm</option>
+								<option>3pm</option>
+								<option>4pm</option>
+								<option>5pm</option>
+								<option>6pm</option>	
+								<option>7pm</option>
+							</select>
+						</div> <!-- select endtime -->
+					</div> <!-- form-group (end-time input) -->
+					<div class="form-group">
+						<div class="col-lg-6 col-lg-offset-2">
+							<button type="reset" class="btn btn-default">reset</button>
+							<a href="#cl" class="btn btn-primary">Next</a>
+						</div> <!-- buttons -->
+					</div> <!-- form-group (userinfo buttons) -->
+				</fieldset>
+			</form> <!-- userinfo -->
+		</div> <!-- jumbotron (user info) -->
+		<div>
+			<br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<br><br><br><br><br><br><br><br><br><br><br><br><br>
+		</div> <!-- spacing -->
+	</div> <!-- getstarted container -->
 	
+	<a id="cl"></a>
+	<div class="container">
+		<div>
+			<br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<br><br><br><br><br><br><br><br><br><br><br><br><br>
+		</div> <!-- space for course selector div -->
+		<div>
+			<br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<br><br><br><br><br><br><br><br><br><br><br><br><br>
+		</div> <!-- space for course selector div -->
+		<h1>course selector goes here</h1>
+		<div>
+			<br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<br><br><br><br><br><br><br><br><br><br><br><br><br>
+		</div>
+	</div> <!-- cl container -->
+	
+<<<<<<< HEAD
 	<div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
 
 <div>
@@ -362,6 +311,8 @@
 
 
 <div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+=======
+>>>>>>> FETCH_HEAD
 
 <div class = "output">
 	<div class = "Days-Of-The-Week">
@@ -392,23 +343,15 @@
 	
 </div>
 
-
-
-
-
-
-
-
-	<!-- JQuery, Bootstrap JS, and our at end for performance -->
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js'></script>
-	<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js'></script>
-	<script src="js/jquery.weekcalendar.js"></script>
-	<script src="js/jquery.weekcalendar.js.min.js"></script>
-	<script src="js/juliett.js"></script>
+<!-- JQuery, Bootstrap JS, and our at end for performance -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js'></script>
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js'></script>
+<script src="js/jquery.weekcalendar.js"></script>
+<script src="js/jquery.weekcalendar.js.min.js"></script>
+<script src="js/juliett.js"></script>
 
 </body>
-
 </html>
