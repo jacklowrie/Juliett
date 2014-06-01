@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import team_juliett_processor.Team_Juliett_processor;
+
 @WebServlet(
         name = "MyServlet",
         urlPatterns = {"/hello"}
@@ -88,13 +90,15 @@ public class HelloServlet extends HttpServlet {
     	FileInputStream fis = new FileInputStream(file);
     	BufferedReader br = new BufferedReader(new InputStreamReader(fis));
     	
+    	Team_Juliett_processor p = new Team_Juliett_processor();
     	
-    	
-//    	 String message = System.getProperty("user.dir") ;
-    	 String message = br.readLine() ;
+    	 String message = p.test();
+    	 //String message = System.getProperty("user.dir") ;
+    	 //String message = br.readLine() ;
          req.setAttribute("message", message); // This will be available as ${message}
-         req.getRequestDispatcher("course_shedule.jsp").forward(req, resp);
-    	
+         System.out.println(message);
+         req.getRequestDispatcher("course_shedule.html").forward(req, resp);
+         
     	
     }
     
