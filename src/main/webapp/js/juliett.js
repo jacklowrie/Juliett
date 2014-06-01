@@ -200,6 +200,17 @@ $(document).ready( function(){
 		else
 			$(loc).html("");
 	}
+	
+	function daystohex(thiscourse){
+		var daysinhex=0x0;
+		var daystring = thiscourse.meeting_days; //from json parsed message
+		var days = [ ["Mo",0x1], ["Tu",0x2], ["We",0x4], ["Th",0x8], ["Fr",0x10] ]; //corresponding hex vals for each day in string
+		
+		for (var i=0; i<days.length; i++){ //go through the input string
+			daysinhex |= daystring.indexOf(days[i][0]) == -1 ? 0x0 : days[i][1]; //or-in (bitwise) the hex value of each day in daystring to daysinhex
+		}
+		return daysinhex
+	}
 
 //endfile
 });
