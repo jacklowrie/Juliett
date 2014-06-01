@@ -77,6 +77,10 @@ sup {
   line-height: 0;
   vertical-align: baseline;
 }
+
+[class+='times'] {
+	float: left
+}
 sup {
   top: -.5em;
 }

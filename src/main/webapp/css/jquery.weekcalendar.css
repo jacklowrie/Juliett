@@ -52,6 +52,11 @@
 	background: #eee;	
 }
 
+table,th,td
+{
+border:1px solid black;
+}
+
 
 
 .wc-scrollable-grid {
