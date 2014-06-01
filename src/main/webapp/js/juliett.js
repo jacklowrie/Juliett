@@ -35,8 +35,8 @@ $(document).ready( function(){
 	});
 	
 	
-//Schedules.html (calendar functions)
-		var mystruct = [
+/* Schedules.html (calendar functions) */
+	var mystruct = [
 					["#m080", 0x1, 0x0001],
 					["#m085", 0x1, 0x0002],
 					["#m090", 0x1, 0x0004],
@@ -183,7 +183,7 @@ $(document).ready( function(){
 					["#f215", 0x10, 0x8000000],
 				];
 				
-				var starttimes = [
+	var starttimes = [
 					["08:00:00",  0x0001],
 					["08:30:00",  0x0002],
 					["09:00:00",  0x0004],
@@ -214,127 +214,124 @@ $(document).ready( function(){
 					["21:30:00",  0x8000000]];
 					
 			
-			getcourseinfo();
-			$("#displayblocked").click( function (){
-				
-				var times =  parseInt ($("#times").val(), 16) ;
-				var days =  parseInt ($("#days").val(), 16) ;
-				
-				$("#myresult").html( 'times ' + times + ' days ' + days );
-				updateTimeTable(times, days, "busy");
-				
-			} );
-			
-			function updateTimeTable(times, days, message){
-				for(var i=0; i < mystruct.length; i++)
-					updateSchedule(mystruct[i][0], mystruct[i][1], mystruct[i][2], days, times, message);
-			}
-			
-			function updateSchedule(loc, currentday, currenttime, days, times, message){
-			
-				if ( ((currentday & days) == currentday) && 
-					 ((currenttime & times) == currenttime) )
-					$(loc).html(message);
-				// else
-// 					$(loc).html("");
-			}
-			
-			/** just using this to mess with the json object **/
-			function getcourseinfo(){
-				var message = '[{"id": 59271, "title": "Freshman Seminar", "term": "2013 Fall", "school": "WCAS", "instructor": {"name": "Harris Matthew Feinsod", "bio": null, "address": null, "phone": null, "office_hours": null}, "subject": "ENGLISH", "catalog_num": "101-6", "section": "24", "room": "University Hall 018", "meeting_days": "TuTh", "start_time": "09:30:00", "end_time": "10:50:00", "start_date": "2013-09-24", "end_date": "2013-12-07", "seats": 15, "overview": null, "topic": "Sea Changes: Literature of the Modern Oceans", "attributes": null, "requirements": "Enrollment Requirements: Reserved for Freshmen and Sophomores", "component": "LEC", "class_num": 13318, "course_id": 1763, "coursedesc_set": [], "coursecomponent_set": []}, {"id": 3269, "title": "Freshman Seminar", "term": "2013 Fall", "school": "WCAS", "instructor": {"name": "Mary E Finn", "bio": null, "address": null, "phone": null, "office_hours": null}, "subject": "ENGLISH", "catalog_num": "101-6", "section": "25", "room": "Fisk Hall 114", "meeting_days": "TuTh", "start_time": "11:30:00", "end_time": "12:50:00", "start_date": "2013-09-24", "end_date": "2013-12-07", "seats": 15, "overview": null, "topic": "Not Your Mother\'s Jane Austen", "attributes": null, "requirements": "Enrollment Requirements: Reserved for Freshmen and Sophomores", "component": "LEC", "class_num": 17480, "course_id": 1763, "coursedesc_set": [{"name": "Class Materials (Required)", "desc": "Jane Austen, Sense and Sensibility (1811); Mary Elizabeth Braddon, Lady Audley\'s Secret (1862); Henry James, The Portrait of a Lady (1881)"}, {"name": "Note", "desc": "Janine Tobeck got her Ph. D. from the University of Wisconsin-Madison. Her dissertation, \\"Altered States: Authors, Subjects and Sovereignty in Postwar American Fiction\\" focused on a group of marginally canonical writers who worked to throw out the bath-water of conventional realism without the baby of social commitment after World War II. It unites these writers into a cohesive alternative tradition by relating their literary strategies to the theory of a \\"literature of power\\" and the strange autobiographical subject of Thomas De Quincey, the (similarly unconventional) romanticist best known as the English Opium-Eater."}, {"name": "Reading", "desc": "Hannah Arendt, <i>Eichmann in Jerusalem</i>\\nKurt Vonnegut, <i>Mother Night</i>Kazuo Ishiguro, <i>Remains of the Day</i>\\n    Laura Blumenfeld, <i>Revenge, A Story of Hope</i>, additional readings available online"}, {"name": "Teaching Method", "desc": "Discussion"}, {"name": "Projects", "desc": "You will be asked to take formal minutes for one class session (~750 words), write three short papers (~750 words each), and a final paper of ~2,000 words"}, {"name": "Evaluation Method", "desc": "Three short papers will form the basis of evaluation. Class participation will also be factored into grades."}, {"name": "Class Notes", "desc": "I\'m a long-time member of the Northwestern faculty whose research has centered on Victorian novels and cultural history. My taste for hardboiled crime fiction will be temporarily held in check for the purposes of this course."}], "coursecomponent_set": []}, {"id": 59267, "title": "Freshman Seminar", "term": "2013 Fall", "school": "WCAS", "instructor": {"name": "Shauna Seliy", "bio": null, "address": null, "phone": null, "office_hours": null}, "subject": "ENGLISH", "catalog_num": "101-6", "section": "20", "room": "Parkes Hall 224", "meeting_days": "MoWe", "start_time": "09:30:00", "end_time": "10:50:00", "start_date": "2013-09-24", "end_date": "2013-12-07", "seats": 15, "overview": "We will read three classic nineteenth-century novels that seem to tell one story (the story of a young woman\'s quest for independence and personal fulfillment) in a series of different versions. The course is designed as an introduction to the critical reading of fiction and to the effective use of such concepts as theme, metaphor, tone, point of view, authorial \\"distance.\\"", "topic": "Growing up Gay", "attributes": "No P/N option for this section\\n\\n", "requirements": "Enrollment Requirements: Reserved for Freshmen and Sophomores", "component": "LEC", "class_num": 11506, "course_id": 1763, "coursedesc_set": [{"name": "Class Notes", "desc": "I\'m a long-time member of the Northwestern faculty whose research has centered on Victorian novels and cultural history. My taste for hardboiled crime fiction will be temporarily held in check for the purposes of this course."}, {"name": "Class Materials (Required)", "desc": "Jane Austen, Sense and Sensibility (1811); Mary Elizabeth Braddon, Lady Audley\'s Secret (1862); Henry James, The Portrait of a Lady (1881)"}, {"name": "Evaluation Method", "desc": "Three short papers will form the basis of evaluation. Class participation will also be factored into grades."}], "coursecomponent_set": []}, {"id": 59268, "title": "Freshman Seminar", "term": "2013 Fall", "school": "WCAS", "instructor": {"name": "Glenn F Sucich", "bio": null, "address": null, "phone": null, "office_hours": null}, "subject": "ENGLISH", "catalog_num": "101-6", "section": "21", "room": "Annenberg Hall G28", "meeting_days": "MoWe", "start_time": "14:00:00", "end_time": "15:20:00", "start_date": "2013-09-24", "end_date": "2013-12-07", "seats": 15, "overview": null, "topic": "History of Hell", "attributes": null, "requirements": "Enrollment Requirements: Reserved for Freshmen and Sophomores", "component": "LEC", "class_num": 11953, "course_id": 1763, "coursedesc_set": [], "coursecomponent_set": []}, {"id": 59269, "title": "Freshman Seminar", "term": "2013 Fall", "school": "WCAS", "instructor": {"name": "Evan M Mwangi", "bio": null, "address": null, "phone": null, "office_hours": null}, "subject": "ENGLISH", "catalog_num": "101-6", "section": "22", "room": "Parkes Hall 213", "meeting_days": "MoWe", "start_time": "15:30:00", "end_time": "16:50:00", "start_date": "2013-09-24", "end_date": "2013-12-07", "seats": 15, "overview": null, "topic": "Representations of Violence", "attributes": null, "requirements": "Enrollment Requirements: Reserved for Freshmen and Sophomores", "component": "LEC", "class_num": 12085, "course_id": 1763, "coursedesc_set": [], "coursecomponent_set": []}]'
-/*	"title": "Freshman Seminar"
-	"meeting_days": "TuTh"
-	"room": "University Hall 018"
-	"start_time": "09:30:00", "end_time": "10:50:00"*/
-				var course = JSON.parse(message);
-				var title = course[0].title;
-				//alert("the title is " + title);
-				
-				var mycoursestring = "";
-				for (var i=0; i < course.length; i++){
-					mycoursedays = getencodeddays(course[i]);
-					mycoursetimes = getencodedtimes(course[i]);
-					mycoursetitle = getcoursestring(course[i]);
-					mycoursestring += getcoursestring(course[i]);
-					
-					mycoursestring += "<br>encoded days  are 0b" + mycoursedays.toString(2) + " ";
-					mycoursestring += "<br>encoded times are 0b" + mycoursetimes.toString(2);
-					mycoursestring += "<br>";
-					updateTimeTable(mycoursetimes, mycoursedays, mycoursetitle);
-
-				}
-				
-				$("#mycourses").html( mycoursestring);
-			}
-			function getcoursestring(thiscourse){
-				// var coursestring = thiscourse.title + " " +
-// 								  thiscourse.id + " " +
-// 								  thiscourse.meeting_days + " " +
-// 								  thiscourse.room +  " " +
-// 								  thiscourse.start_time + " " +
-// 								  thiscourse.end_time ;
-				return thiscourse.title + " " + thiscourse.id;
-			}
-			
-			
-			function getencodeddays(thiscourse){
-				var encodeddays = 0x0;
-				var daystring = thiscourse.meeting_days;
-				var days = [["Mo",0x1], ["Tu",0x2], ["We",0x4], ["Th",0x8], ["Fr",0x10]];
-				
+	getcourseinfo();
+	/*$("#displayblocked").click( function (){
 		
-				for (var i=0; i<days.length;i++){
-					// var loc = daystring.indexOf(days[i][0]);
-// 					if (loc != -1)
-// 						encodeddays |= days[i][1];
-					encodeddays |= daystring.indexOf(days[i][0]) == -1 ? 0x0 : days[i][1];
-				}
-				return encodeddays;
-			}
+		var times =  parseInt ($("#times").val(), 16) ;
+		var days =  parseInt ($("#days").val(), 16) ;
+		
+		$("#myresult").html( 'times ' + times + ' days ' + days );
+		updateTimeTable(times, days, "busy");
+		
+	} );*/
 			
-			function getencodedtimes(thiscourse){
-				var encodedtimes = 0x0;
-				var timestart = new Date("Wed Jan 26 2011 " + thiscourse.start_time);
-				var timeend = new Date("Wed Jan 26 2011 " + thiscourse.end_time);
-					
-				var encodedtimestart = lookupstarttime(thiscourse.start_time);
-				var halfhours = classDurationHalfHours(thiscourse);
-				
-				encodedtimes = encodedtimestart;
-				for(var i=0; i<halfhours; i++){
-					encodedtimes = (encodedtimes << 1) | encodedtimestart;
-				}
-				
-				return encodedtimes;
-			}
+	function updateTimeTable(times, days, message){ 
+	//calls updateSchedule on every cell in mystruct
+		for(var i=0; i < mystruct.length; i++)
+			updateSchedule(mystruct[i][0], mystruct[i][1], mystruct[i][2], days, times, message);
+	}
+
+	function updateSchedule(loc, currentday, currenttime, days, times, message){ 
+	//if this cell's day is listed in days, and this cell's 1/2 hour isin times, change the content of the td to message
+		if ( ((currentday & days) == currentday) && 							 
+			 ((currenttime & times) == currenttime) )
+			$(loc).html(message);
+//		 else
+// 			$(loc).html("");
+	}
 			
-			function lookupstarttime(st){
+	function getcourseinfo(){ 
+	//parses json object, interprets it and updates the timetable
+		var message = '[{"id": 59271, "title": "Freshman Seminar", "term": "2013 Fall", "school": "WCAS", "instructor": {"name": "Harris Matthew Feinsod", "bio": null, "address": null, "phone": null, "office_hours": null}, "subject": "ENGLISH", "catalog_num": "101-6", "section": "24", "room": "University Hall 018", "meeting_days": "TuTh", "start_time": "09:30:00", "end_time": "10:50:00", "start_date": "2013-09-24", "end_date": "2013-12-07", "seats": 15, "overview": null, "topic": "Sea Changes: Literature of the Modern Oceans", "attributes": null, "requirements": "Enrollment Requirements: Reserved for Freshmen and Sophomores", "component": "LEC", "class_num": 13318, "course_id": 1763, "coursedesc_set": [], "coursecomponent_set": []}, {"id": 3269, "title": "Freshman Seminar", "term": "2013 Fall", "school": "WCAS", "instructor": {"name": "Mary E Finn", "bio": null, "address": null, "phone": null, "office_hours": null}, "subject": "ENGLISH", "catalog_num": "101-6", "section": "25", "room": "Fisk Hall 114", "meeting_days": "TuTh", "start_time": "11:30:00", "end_time": "12:50:00", "start_date": "2013-09-24", "end_date": "2013-12-07", "seats": 15, "overview": null, "topic": "Not Your Mother\'s Jane Austen", "attributes": null, "requirements": "Enrollment Requirements: Reserved for Freshmen and Sophomores", "component": "LEC", "class_num": 17480, "course_id": 1763, "coursedesc_set": [{"name": "Class Materials (Required)", "desc": "Jane Austen, Sense and Sensibility (1811); Mary Elizabeth Braddon, Lady Audley\'s Secret (1862); Henry James, The Portrait of a Lady (1881)"}, {"name": "Note", "desc": "Janine Tobeck got her Ph. D. from the University of Wisconsin-Madison. Her dissertation, \\"Altered States: Authors, Subjects and Sovereignty in Postwar American Fiction\\" focused on a group of marginally canonical writers who worked to throw out the bath-water of conventional realism without the baby of social commitment after World War II. It unites these writers into a cohesive alternative tradition by relating their literary strategies to the theory of a \\"literature of power\\" and the strange autobiographical subject of Thomas De Quincey, the (similarly unconventional) romanticist best known as the English Opium-Eater."}, {"name": "Reading", "desc": "Hannah Arendt, <i>Eichmann in Jerusalem</i>\\nKurt Vonnegut, <i>Mother Night</i>Kazuo Ishiguro, <i>Remains of the Day</i>\\n    Laura Blumenfeld, <i>Revenge, A Story of Hope</i>, additional readings available online"}, {"name": "Teaching Method", "desc": "Discussion"}, {"name": "Projects", "desc": "You will be asked to take formal minutes for one class session (~750 words), write three short papers (~750 words each), and a final paper of ~2,000 words"}, {"name": "Evaluation Method", "desc": "Three short papers will form the basis of evaluation. Class participation will also be factored into grades."}, {"name": "Class Notes", "desc": "I\'m a long-time member of the Northwestern faculty whose research has centered on Victorian novels and cultural history. My taste for hardboiled crime fiction will be temporarily held in check for the purposes of this course."}], "coursecomponent_set": []}, {"id": 59267, "title": "Freshman Seminar", "term": "2013 Fall", "school": "WCAS", "instructor": {"name": "Shauna Seliy", "bio": null, "address": null, "phone": null, "office_hours": null}, "subject": "ENGLISH", "catalog_num": "101-6", "section": "20", "room": "Parkes Hall 224", "meeting_days": "MoWe", "start_time": "09:30:00", "end_time": "10:50:00", "start_date": "2013-09-24", "end_date": "2013-12-07", "seats": 15, "overview": "We will read three classic nineteenth-century novels that seem to tell one story (the story of a young woman\'s quest for independence and personal fulfillment) in a series of different versions. The course is designed as an introduction to the critical reading of fiction and to the effective use of such concepts as theme, metaphor, tone, point of view, authorial \\"distance.\\"", "topic": "Growing up Gay", "attributes": "No P/N option for this section\\n\\n", "requirements": "Enrollment Requirements: Reserved for Freshmen and Sophomores", "component": "LEC", "class_num": 11506, "course_id": 1763, "coursedesc_set": [{"name": "Class Notes", "desc": "I\'m a long-time member of the Northwestern faculty whose research has centered on Victorian novels and cultural history. My taste for hardboiled crime fiction will be temporarily held in check for the purposes of this course."}, {"name": "Class Materials (Required)", "desc": "Jane Austen, Sense and Sensibility (1811); Mary Elizabeth Braddon, Lady Audley\'s Secret (1862); Henry James, The Portrait of a Lady (1881)"}, {"name": "Evaluation Method", "desc": "Three short papers will form the basis of evaluation. Class participation will also be factored into grades."}], "coursecomponent_set": []}, {"id": 59268, "title": "Freshman Seminar", "term": "2013 Fall", "school": "WCAS", "instructor": {"name": "Glenn F Sucich", "bio": null, "address": null, "phone": null, "office_hours": null}, "subject": "ENGLISH", "catalog_num": "101-6", "section": "21", "room": "Annenberg Hall G28", "meeting_days": "MoWe", "start_time": "14:00:00", "end_time": "15:20:00", "start_date": "2013-09-24", "end_date": "2013-12-07", "seats": 15, "overview": null, "topic": "History of Hell", "attributes": null, "requirements": "Enrollment Requirements: Reserved for Freshmen and Sophomores", "component": "LEC", "class_num": 11953, "course_id": 1763, "coursedesc_set": [], "coursecomponent_set": []}, {"id": 59269, "title": "Freshman Seminar", "term": "2013 Fall", "school": "WCAS", "instructor": {"name": "Evan M Mwangi", "bio": null, "address": null, "phone": null, "office_hours": null}, "subject": "ENGLISH", "catalog_num": "101-6", "section": "22", "room": "Parkes Hall 213", "meeting_days": "MoWe", "start_time": "15:30:00", "end_time": "16:50:00", "start_date": "2013-09-24", "end_date": "2013-12-07", "seats": 15, "overview": null, "topic": "Representations of Violence", "attributes": null, "requirements": "Enrollment Requirements: Reserved for Freshmen and Sophomores", "component": "LEC", "class_num": 12085, "course_id": 1763, "coursedesc_set": [], "coursecomponent_set": []}]'
+/*			"title": "Freshman Seminar"
+			"meeting_days": "TuTh"
+			"room": "University Hall 018"
+			"start_time": "09:30:00", "end_time": "10:50:00" */
+		var course = JSON.parse(message);
+		var title = course[0].title;
+		//alert("the title is " + title);
+		
+		var mycoursestring = "";
+		for (var i=0; i < course.length; i++){
+			mycoursedays = getencodeddays(course[i]);
+			mycoursetimes = getencodedtimes(course[i]);
+			mycoursetitle = getcoursestring(course[i]);
+			mycoursestring += getcoursestring(course[i]);
+			
+			mycoursestring += "<br>encoded days  are 0b" + mycoursedays.toString(2) + " ";
+			mycoursestring += "<br>encoded times are 0b" + mycoursetimes.toString(2);
+			mycoursestring += "<br>";
+			updateTimeTable(mycoursetimes, mycoursedays, mycoursetitle);
+
+		}
+		
+		$("#mycourses").html( mycoursestring);
+	}
+	
+	/* helper functions for getcourseinfo() */
+		function getcoursestring(thiscourse){
+			// var coursestring = thiscourse.title + " " +
+								//thiscourse.id + " " +
+								//thiscourse.meeting_days + " " +
+								//thiscourse.room +  " " +
+								//thiscourse.start_time + " " +
+								//thiscourse.end_time ;
+			return thiscourse.title + " " + thiscourse.id;
+		}
+
+		function getencodeddays(thiscourse){ //transforms input string into hex vals
+			var encodeddays = 0x0;
+			var daystring = thiscourse.meeting_days;
+			var days = [["Mo",0x1], ["Tu",0x2], ["We",0x4], ["Th",0x8], ["Fr",0x10]];
+		
+
+			for (var i=0; i<days.length;i++){
+				// var loc = daystring.indexOf(days[i][0]);
+	// 					if (loc != -1)
+	// 						encodeddays |= days[i][1];
+				encodeddays |= daystring.indexOf(days[i][0]) == -1 ? 0x0 : days[i][1];
+			}
+			return encodeddays;
+		}
+			
+		function getencodedtimes(thiscourse){ //transforms input into time duration
+			var encodedtimes = 0x0;
+			var timestart = new Date("Wed Jan 26 2011 " + thiscourse.start_time);
+			var timeend = new Date("Wed Jan 26 2011 " + thiscourse.end_time);
+			
+			var encodedtimestart = lookupstarttime(thiscourse.start_time);
+			var halfhours = classDurationHalfHours(thiscourse);
+		
+			encodedtimes = encodedtimestart;
+			for(var i=0; i<halfhours; i++){
+				encodedtimes = (encodedtimes << 1) | encodedtimestart;
+			}
+		
+			return encodedtimes;
+		}
+	
+		/* helper functions for getencodedtimes() */		
+			function lookupstarttime(st){ //returns start time of class
 				for (var i=0; i<starttimes.length; i++)
 					if (starttimes[i][0] == st)
 						return starttimes[i][1];
 				return 0;
 			}
-			function classDurationHalfHours(thiscourse){
+	
+			function classDurationHalfHours(thiscourse){ //returns duration of course
 				var timestart = new Date("Wed Jan 26 2011 " + thiscourse.start_time);
 				var timeend = new Date("Wed Jan 26 2011 " + thiscourse.end_time);
 				if (timestart>timeend){
 					alert("error times wrong");
 					return 0;
-				} else {
+				} 
+				else {
 					var class_seconds = ( timeend.getTime() - timestart.getTime()) / 1000;
 					var class_minutes = class_seconds/60;
 					var class_halfhours = class_minutes/30;
 					return Math.floor(class_halfhours);
 				}
 			}
-
-
-
-
-
-
-
 	
-
 //endfile
 });
