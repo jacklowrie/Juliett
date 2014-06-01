@@ -182,7 +182,9 @@
 
         function removeCourse(e) {
             $(this).parent().remove();
+
         }
+
 
         // Add the course menu on the left sidebar
         function addCourse(e) {
@@ -199,8 +201,13 @@
                 }
             });
             if (skip) return;
+
+          
+
 $('#added-classes').append($('<div/>', {
-                'class': "added-class row panel panel-default"
+                'class': "added-class row panel",
+                'name':"added-class",
+                'value': $(this).data("courseData").id
             }).append(
             $('<div/>', {
                 'class': "col-lg-12 col-md-12 col-sm-12 col-xs-12"
@@ -211,21 +218,16 @@ $('#added-classes').append($('<div/>', {
                 'class': "col-lg-6 btn btn-default pref active ",
                 'text': "Mandatory"
             }).append($('<input/>', {
-                'type': "radio",
-                'name': "options",
-                'id': "option1",
-                'checked': "checked"
+                'type': "radio"
             })), $('<label/>', {
                 'class': "col-lg-6 btn btn-default pref",
                 'text': "Optional"
             }).append($('<input/>', {
-                'type': "radio",
-                'name': "options",
-                'id': "option2"
+                'type': "radio"
             })))),
             $('<div/>', {
                 'class': "col-lg-9 text-primary",
-                'text': "Course Title: " + $(this).data("courseData").title
+                'text': " " + $(this).data("courseData").title
             }), $('<div/>', {
                 'class': "col-lg-9 text-info",
                 'text': "Section: " + $(this).data("courseData").subject + " " + $(this).data("courseData").catalog_num + "-" + $(this).data("courseData").section
