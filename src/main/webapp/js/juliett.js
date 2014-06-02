@@ -200,8 +200,10 @@ $(document).ready( function(){
 	function updateSchedule(loc, currentday, currenttime, days, times, message){ 
 	//if this cell's day is listed in days, and this cell's 1/2 hour isin times, change the content of the td to message
 		if ( ((currentday & days) == currentday) && 							 
-			 ((currenttime & times) == currenttime) )
+			 ((currenttime & times) == currenttime) ) {
 			$(loc).html(message);
+			$(loc).css("background-color","#df691a")
+		}
 //		 else
 // 			$(loc).html("");
 	}
@@ -298,6 +300,9 @@ $(document).ready( function(){
 					return Math.floor(class_halfhours);
 				}
 			}
-	
+
+
+
+
 //endfile
 });
