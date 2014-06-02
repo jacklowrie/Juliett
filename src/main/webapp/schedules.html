@@ -21,21 +21,7 @@
 
 <body>
 	<div class="container" id="schedpagecontainer">
-		<h2>Encoded Busy Time in Hex!!</h2>
-		<br>
-		<h4>Days in Hex</h4>
-		<table class="table table-condensed" id="weekinhex">
-			<thead><tr><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th></tr></thead>
-			<tbody><tr><td>0x1</td><td>0x2</td><td>0x4</td><td>0x8</td><td>0x10</td></tr></tbody>
-		</table> <!-- weekday hex guide -->
-		<input size="12" id="days" placeholder="days"/><input size="12" id="times" placeholder="times"/><button id="busybutton">Show Busy</button>
-		<br> 
-		
-		<br><br>
-		<h4>Busy periods in Hex</h4>
-		<div id="myresult">Hex vals</div>
-		<br>
-		
+
 		<table class="table table-striped table-bordered">
 			<thead>
 				<tr>
@@ -262,7 +248,8 @@
 					<td id="r205"></td>
 					<td id="f205"></td>
 				</tr>
-			
+				
+				<!-- 9pm -->
 				<tr>
 					<td rowspan="2"> 9:00pm</td>
 					<td id="m210"></td>
@@ -281,8 +268,6 @@
 			</tbody>
 		</table>
 	</div> <!-- div container -->
-
-
 
 
 <!-- JQuery, Bootstrap JS, and our at end for performance -->
