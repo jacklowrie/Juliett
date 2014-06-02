@@ -74,9 +74,6 @@ public class Course{
         return x;
     }
     
-    public String toString(){
-        return course_name;
-    }
     
     public boolean[] get_days_of_week(){
         return days_of_week;
@@ -126,12 +123,22 @@ public class Course{
     }
     
     public void setStartTime(String t){
-        
+        this.start_time = Integer.parseInt(t);
     }
     
-    public void setEndTime(String t){
-        
+    public void setEndTime(String u){
+        this.end_time = Integer.parseInt(u);
     }
+    
+    
+    public String toString(){
+        String toPrint = ""; 
+        toPrint += course_name;
+        toPrint += getDaysofWeek() + "\nStarts at " + this.start_time + "\nEnds at " + this.end_time;
+        
+        return toPrint;
+    }
+    
 
 
 }   // end definition

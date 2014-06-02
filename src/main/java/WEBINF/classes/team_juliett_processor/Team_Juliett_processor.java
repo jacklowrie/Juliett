@@ -24,10 +24,6 @@ public class Team_Juliett_processor {
      * @param args the command line arguments
      */
     private static int number_of_courses;
-  
-    public String test() {
-    	return "hello world";
-    }
     
     public static void main(String[] args) throws IOException, ParseException{
         
@@ -59,7 +55,10 @@ public class Team_Juliett_processor {
         System.out.println(bob.toString());
         
         int[] bobscourses = bob.getMands();
-        int numberofCourses = bobscourses.length;
+        int[] bobscourses2 = bob.getOptional();
+        int numberofCourses = bobscourses.length + bobscourses2.length;
+        Course[] bobsCourses;
+        bobsCourses = new Course[numberofCourses];
         
         
         while((line = br.readLine()) != null) {
@@ -70,6 +69,7 @@ public class Team_Juliett_processor {
                 id = Integer.toString(bobscourses[i]);
                 //System.out.println(courselist[i]);
                 if (line.contains(id)){
+                    
                     int mdIndex = line.indexOf("meeting_days");
                     int stIndex = line.indexOf("start_time");
                     int etIndex = line.indexOf("end_time");
@@ -80,31 +80,39 @@ public class Team_Juliett_processor {
                     String title = (line.substring(tIndex+9, t1Index-4));
                     String meetingDays = (line.substring(mdIndex+16, stIndex-4));
                     
-                    String startTimeS = (line.substring(stIndex+14,stIndex+16));
+                    String startTimeS = "" + (line.substring(stIndex+14,stIndex+16));
                     String startTimeS1 = (line.substring(stIndex+17,stIndex+19));
+                    startTimeS += startTimeS1;
                     
                     String endTimeS = (line.substring(etIndex+12, etIndex+14));
                     String endTimeS1 = (line.substring(etIndex+15, etIndex+17));
+                    endTimeS += endTimeS1;
+
+                    bobsCourses[i] = new Course(id);
+
+                    bobsCourses[i].setName(title);
+                    bobsCourses[i].setDaysofWeek(meetingDays);
+                    bobsCourses[i].setStartTime(startTimeS);
+                    bobsCourses[i].setEndTime(endTimeS);
                     
-                    Course c = new Course(id);
-                    System.out.println(c.getIDString());
-                    System.out.println(meetingDays);
-                    c.setName(title);
-                    c.setDaysofWeek(meetingDays);
-                    System.out.println(c.getDaysofWeek());
-                    
-                    System.out.println("Starts at " + startTimeS + startTimeS1);
-                    System.out.println("Ends at " + endTimeS + endTimeS1);
-                    
+                    System.out.println(bobsCourses[i].getIDString());
+                    System.out.println(bobsCourses[i].toString());
+
+
                     
                     System.out.println("\n");
                     //c.setDaysofWeek(meetingDays));
                     //courses[i] = c;
                 }
+
                 
             }
+                         
         }
         br.close();
+        
+        
       
     }
+
 }

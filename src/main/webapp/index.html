@@ -61,7 +61,7 @@
 	<div class="container">
 		<br><br><br>
 		<div class="jumbotron">
-			<form class="form-horizontal" id="userinfo">
+			<form class="form-horizontal" id="userinfo" action = "/hello">
 				<fieldset>
 					<legend class="col-lg-offset-1" id="userinfolegend">User Information</legend>
 					<div class="form-group">
@@ -75,22 +75,22 @@
 						<div class="col-lg-10">
 							<div class="radio">
 								<label for="optionsRadios1">North of Kellogg</label>
-								<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+								<input type="radio" name="optionsRadios" id="optionsRadios1" value="1">
 							</div> <!-- North option -->
 							<div class="radio">
 								<label for="optionsRadios2">South of Kellogg</label>
-								<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+								<input type="radio" name="optionsRadios" id="optionsRadios2" value="2">
 							</div> <!-- South option -->
 							<div class="radio">
 								<label for="optionsRadios3">I don't mind walking!</label>
-								<input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" checked="">
+								<input type="radio" name="optionsRadios" id="optionsRadios3" value="3" checked="">
 							</div> <!-- No Pref option -->
 						</div>
 					</div> <!-- form-group (residence input) -->
 					<div class="form-group">
 						<label class="col-lg-2 control-label" for="selectstarttime">I prefer my day to start after:</label>
 						<div class="col-lg-6">
-							<select class="form-control" id="selectstarttime">
+							<select name = "time_start" class="form-control" id="selectstarttime">
 								<option>any time!</option>
 								<option>7am</option>
 								<option>8am</option>
@@ -106,7 +106,7 @@
 					<div class="form-group">
 						<label class="col-lg-2 control-label" for="selectendtime">I prefer my day to end before:</label>
 						<div class="col-lg-6">
-							<select class="form-control" id="selectendtime">
+							<select name = "time_end" class="form-control" id="selectendtime">
 								<option>any time!</option>
 								<option>12pm</option>
 								<option>1pm</option>

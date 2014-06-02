@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Enumeration;
 
 import javax.servlet.ServletException;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import team_juliett_processor.Team_Juliett_processor;
+import team_juliett_processor.User;
 
 @WebServlet(
         name = "MyServlet",
@@ -22,83 +24,109 @@ import team_juliett_processor.Team_Juliett_processor;
     )
 public class HelloServlet extends HttpServlet {
 
+	
+	public int changeTime(String time) {
+
+        if (time == "any time!" || time == "") 
+        	return 2500;
+        else {
+        	if (time.contains("am")) {
+        		int pos = time.indexOf("am");
+        		int num = Integer.valueOf(time.substring(0, pos));
+        		return num * 100;
+        	}
+        	else if (time.contains("pm")) {
+        		int pos = time.indexOf("pm");
+        		int num = Integer.valueOf(time.substring(0, pos));
+        		return num * 100 + 1200;
+        	}
+        }
+        return 2500;
+	}
+	
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         
-//    	int m;
-//    	for (int i = 0; i < Integer.MAX_VALUE; i++) 
-//			for (int j = 0; j < 10; j++)
-//				for (int h = 0; h < 10; h++)
-//					m = i / 2;
-    	
-    	
-//    	resp.setContentType("text/html");
-//
-//    	ServletOutputStream out = resp.getOutputStream();
-//        String title = "Reading All Form Parameters";
-//        String docType =
-//        "<!doctype html public \"-//w3c//dtd html 4.0 " +
-//        "transitional//en\">\n";
-//        out.println(docType +
-//          "<html>\n" +
-//          "<head><title>" + title + "</title></head>\n" +
-//          "<body bgcolor=\"#f0f0f0\">\n" +
-//          "<h1 align=\"center\">" + title + "</h1>\n" +
-//          "<table width=\"100%\" border=\"1\" align=\"center\">\n" +
-//          "<tr bgcolor=\"#949494\">\n" +
-//          "<th>Param Name</th><th>Param Value(s)</th>\n"+
-//          "</tr>\n");
-//        
-//        Enumeration paramNames = req.getParameterNames();
-//        while(paramNames.hasMoreElements()) {
-//            String paramName = (String)paramNames.nextElement();
-//            out.print("<tr><td>" + paramName + "</td>\n<td>");
-//            String[] paramValues = req.getParameterValues(paramName);
-//            if (paramValues.length == 1) {
-//                String paramValue = paramValues[0];
-//                if (paramValue.length() == 0)
-//                  out.println("<i>No Value</i>");
-//                else
-//                  out.println(paramValue);
-//              } else {
-//                  // Read multiple valued data
-//                  out.println("<ul>");
-//                  for(int i=0; i < paramValues.length; i++) {
-//                     out.println("<li>" + paramValues[i]);
-//                  }
-//                  out.println("</ul>");
-//              }
-//           }
-//           out.println("</tr>\n</table>\n</body></html>");
-//        
-//        
-    	
 
-//    	Enumeration paramNames = req.getParameterNames();
+    	resp.setContentType("course_shedule/html");
+
+    	ServletOutputStream out = resp.getOutputStream();
+        
+        Enumeration paramNames = req.getParameterNames();
+        
+        String time_start = "";
+        String time_end = "";
+        int option_radio = 1;
+        ArrayList<Integer> manClass = new ArrayList<Integer>();
+        
+        
+        while(paramNames.hasMoreElements()) {
+            String paramName = (String)paramNames.nextElement();
+            
+            String[] paramValues = req.getParameterValues(paramName);
+            
+            if (paramName == "time_start")
+            	time_start = paramValues[0];
+            else if (paramName == "time_end")
+            	time_end = paramValues[0];
+            else if (paramName == "optionsRadios")
+            	option_radio = Integer.valueOf(paramValues[0]);
+            else if (paramName.startsWith("class")) {
+            	manClass.add(Integer.valueOf(paramValues[0]));
+            }
+        }
+        
+        
+        int[] man = new int[manClass.size()];
+        
+        for (int i = 0; i < manClass.size(); i++) {
+        	man[i] = manClass.get(i);
+        }
+        
+        int time_start_int = changeTime(time_start);
+        int time_end_int = changeTime(time_end);
+        
+
+        User bob = new User(1, man, null, time_start_int, time_end_int);
+        System.out.print(bob);
+        
+        String[] message = bob.getSchedule();
+        
+        String result = "[";
+    	
+    	for (String s : message) {
+    		result = result.concat("{" + s + "}");
+    	}
+    	result.concat("]");
+      
+    	req.setAttribute("message", result); // This will be available as ${message}
+    	System.out.println(result);
+    	req.getRequestDispatcher("schedule.html").forward(req, resp);
+
+    	
+    	
+//    	File file = new File("src/main/java/servlet/course_example.json");
+//    	FileInputStream fis = new FileInputStream(file);
+//    	BufferedReader br = new BufferedReader(new InputStreamReader(fis));
 //    	
-//        out.write("hello he".getBytes());
-//        while (paramNames.hasMoreElements()) {
-//        	out.println((String)paramNames.nextElement());
-//        }
-    	
-//        out.flush();
-//        out.close();
-    	
-
-    	File file = new File("src/main/java/servlet/course_example.json");
-    	FileInputStream fis = new FileInputStream(file);
-    	BufferedReader br = new BufferedReader(new InputStreamReader(fis));
-    	
-    	Team_Juliett_processor p = new Team_Juliett_processor();
-    	
-    	 String message = p.test();
-    	 //String message = System.getProperty("user.dir") ;
-    	 //String message = br.readLine() ;
-         req.setAttribute("message", message); // This will be available as ${message}
-         System.out.println(message);
-         req.getRequestDispatcher("course_shedule.html").forward(req, resp);
-         
+//    	User bob = new User(1, new int[]{58458, 58459, 58460, 58461}, null, 1000, 1700);
+//    	
+//    	String[] message = bob.getSchedule();
+//
+//    	String result = "[";
+//    	
+//    	for (String s : message) {
+//    		result = result.concat("{" + s + "}");
+//    	}
+//    	result.concat("]");
+//    	
+//    	 //String message = System.getProperty("user.dir") ;
+//    	 //String message = br.readLine() ;
+//         req.setAttribute("message", result); // This will be available as ${message}
+//         System.out.println(result);
+//         req.getRequestDispatcher("course_shedule.html").forward(req, resp);
+//         
     	
     }
     

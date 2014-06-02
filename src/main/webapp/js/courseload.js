@@ -202,7 +202,14 @@
             });
             if (skip) return;
 
-          
+            $('#added-classes').append($('<input>', {
+                'name': "course_" + $(this).data("courseData").id,
+                'id' : $(this).data("courseData").id,
+                'value' : $(this).data("courseData").id
+            }))
+
+            $('#' + $(this).data("courseData").id).hide();
+       
 
 $('#added-classes').append($('<div/>', {
                 'class': "added-class row panel",
@@ -218,7 +225,10 @@ $('#added-classes').append($('<div/>', {
                 'class': "col-lg-6 btn btn-default pref active ",
                 'text': "Mandatory"
             }).append($('<input/>', {
-                'type': "radio"
+//                'type': "radio",
+//                'name': $(this).data("courseData").id + "m",
+//                'value': "m"
+            	'type': "radio"
             })), $('<label/>', {
                 'class': "col-lg-6 btn btn-default pref",
                 'text': "Optional"
