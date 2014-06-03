@@ -244,7 +244,7 @@ $(document).ready( function(){
 		}
 		
 		function getpopinfo(thiscourse){
-			return "Topic: " + thiscourse.topic + "Instructor: " + thiscourse.instructor.name +" Section: " + thiscourse.section + " Room: " + thiscourse.room + " starts: " + thiscourse.start_time +" ends: " + thiscourse.end_time;
+			return "Course ID: " + thiscourse.id + " Topic: " + thiscourse.topic + "Instructor: " + thiscourse.instructor.name +" Section: " + thiscourse.section + " Room: " + thiscourse.room + " starts: " + thiscourse.start_time +" ends: " + thiscourse.end_time;
 		}
 
 		function getencodeddays(thiscourse){ //transforms input string into hex vals
