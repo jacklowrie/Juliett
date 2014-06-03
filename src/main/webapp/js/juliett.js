@@ -200,8 +200,9 @@ $(document).ready( function(){
 			mycoursetimes = getencodedtimes(course[i]);
 			courseinfo = makecoursepop(course[i]);
 			
+			//debugging
 			mycoursestring += course[i].title;
-			mycoursestring += "<br>course info is: " + courseinfo.toString(2);
+			mycoursestring += "<br>course info is: " + "'"+courseinfo.toString(2)+"'";
 			mycoursestring += "<br><br>";
 			
 			updateTimeTable(mycoursetimes, mycoursedays, courseinfo);
