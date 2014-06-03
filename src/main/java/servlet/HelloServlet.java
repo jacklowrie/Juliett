@@ -69,21 +69,27 @@ public class HelloServlet extends HttpServlet {
             
             String[] paramValues = req.getParameterValues(paramName);
             
-            if (paramName == "time_start")
+            if (paramName.equals("time_start")) {
             	time_start = paramValues[0];
-            else if (paramName == "time_end")
+            }
+            else if (paramName.equals("time_end")) {
+                System.out.println(paramName + ":***" + paramValues[0]);
+
             	time_end = paramValues[0];
-            else if (paramName == "optionsRadios")
+            }
+            else if (paramName.equals("optionsRadios")) {
             	option_radio = Integer.valueOf(paramValues[0]);
-            else if (paramName.startsWith("man")) {
+            }
+            else if (paramName.startsWith("man_")) {
             	manClass.add(Integer.valueOf(paramValues[0]));
             }
-            else if (paramName.startsWith("opt")) {
+            else if (paramName.startsWith("opt_")) {
             	optClass.add(Integer.valueOf(paramValues[0]));
             }
         }
         
-        
+
+        manClass.removeAll(optClass);
         int[] man = new int[manClass.size()];
         
         for (int i = 0; i < manClass.size(); i++) {
@@ -92,7 +98,7 @@ public class HelloServlet extends HttpServlet {
         
         int[] opt = new int[optClass.size()];
         for (int i = 0; i < optClass.size(); i++) {
-        	opt[i] = manClass.get(i);
+        	opt[i] = optClass.get(i);
         }
         
         int time_start_int = changeTime(time_start);

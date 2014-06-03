@@ -231,7 +231,7 @@
                 'name': "man_" + $(this).data("courseData").id,
                 'value': $(this).data("courseData").id,
             	'type': "radio",
-            	'checked' : "checked"
+            	'checked': "checked"
             })), $('<label/>', {
                 'class': "col-lg-6 btn btn-default pref",
                 'text': "Optional"
