@@ -178,35 +178,10 @@ $(document).ready( function(){
 					["20:30:00",  0x2000000],
 					["21:00:00",  0x4000000],
 					["21:30:00",  0x8000000]];
-					
-			
+						
 	getcourseinfo();
-	/*$("#displayblocked").click( function (){
-		
-		var times =  parseInt ($("#times").val(), 16) ;
-		var days =  parseInt ($("#days").val(), 16) ;
-		
-		$("#myresult").html( 'times ' + times + ' days ' + days );
-		updateTimeTable(times, days, "busy");
-		
-	} );*/
-			
-	function updateTimeTable(times, days, message){ 
-	//calls updateSchedule on every cell in mystruct
-		for(var i=0; i < mystruct.length; i++)
-			updateSchedule(mystruct[i][0], mystruct[i][1], mystruct[i][2], days, times, message);
-	}
+	$('.poppop').popover();
 
-	function updateSchedule(loc, currentday, currenttime, days, times, message){ 
-	//if this cell's day is listed in days, and this cell's 1/2 hour isin times, change the content of the td to message
-		if ( ((currentday & days) == currentday) && 							 
-			 ((currenttime & times) == currenttime) ) {
-			$(loc).html(message);
-			$(loc).css("background-color","#df691a")
-		}
-//		 else
-// 			$(loc).html("");
-	}
 			
 	function getcourseinfo(){ 
 	//parses json object, interprets it and updates the timetable
@@ -223,28 +198,53 @@ $(document).ready( function(){
 		for (var i=0; i < course.length; i++){
 			mycoursedays = getencodeddays(course[i]);
 			mycoursetimes = getencodedtimes(course[i]);
-			mycoursetitle = getcoursestring(course[i]);
-			mycoursestring += getcoursestring(course[i]);
+			courseinfo = makecoursepop(course[i]);
 			
-			mycoursestring += "<br>encoded days  are 0b" + mycoursedays.toString(2) + " ";
-			mycoursestring += "<br>encoded times are 0b" + mycoursetimes.toString(2);
-			mycoursestring += "<br>";
-			updateTimeTable(mycoursetimes, mycoursedays, mycoursetitle);
+			//debugging
+			mycoursestring += course[i].title;
+			mycoursestring += "<br>course info is: " +courseinfo.toString(2);
+			mycoursestring += "<br><br>";
+			
+			updateTimeTable(mycoursetimes, mycoursedays, courseinfo);
 
 		}
-		
-		$("#mycourses").html( mycoursestring);
+		$("#functionoutput").html(mycoursestring);
 	}
 	
 	/* helper functions for getcourseinfo() */
-		function getcoursestring(thiscourse){
+		function updateTimeTable(times, days, message){ 
+		//calls updateSchedule on every cell in mystruct
+			for(var i=0; i < mystruct.length; i++)
+				updateSchedule(mystruct[i][0], mystruct[i][1], mystruct[i][2], days, times, message);
+		}
+
+		function updateSchedule(loc, currentday, currenttime, days, times, message){ 
+		//if this cell's day is listed in days, and this cell's 1/2 hour isin times, change the content of the td to message
+			if ( ((currentday & days) == currentday) && 							 
+				 ((currenttime & times) == currenttime) ) {
+				$(loc).html(message);
+				$(loc).css("background-color","#df691a")
+			}
+		}
+		
+		function makecoursepop(thiscourse){
+			coursedisplay = getcoursedisplay(thiscourse);
+			popinfo = getpopinfo(thiscourse);
+			return "<div type='button' class='btn poppop' data-container='body' data-toggle='popover' data-placement='bottom' data-trigger='hover' data-content='" + popinfo + "'>" + coursedisplay + "</div>";
+		}		
+	
+		function getcoursedisplay(thiscourse){
 			// var coursestring = thiscourse.title + " " +
 								//thiscourse.id + " " +
 								//thiscourse.meeting_days + " " +
 								//thiscourse.room +  " " +
 								//thiscourse.start_time + " " +
 								//thiscourse.end_time ;
-			return thiscourse.title + " " + thiscourse.id;
+			return thiscourse.subject + " " + thiscourse.catalog_num + "<br>" + thiscourse.title;
+		}
+		
+		function getpopinfo(thiscourse){
+			return "Topic: " + thiscourse.topic + "Instructor: " + thiscourse.instructor.name +" Section: " + thiscourse.section + " Room: " + thiscourse.room + " starts: " + thiscourse.start_time +" ends: " + thiscourse.end_time;
 		}
 
 		function getencodeddays(thiscourse){ //transforms input string into hex vals
