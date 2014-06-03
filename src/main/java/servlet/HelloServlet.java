@@ -59,10 +59,13 @@ public class HelloServlet extends HttpServlet {
         String time_end = "";
         int option_radio = 1;
         ArrayList<Integer> manClass = new ArrayList<Integer>();
-        
+        ArrayList<Integer> optClass = new ArrayList<Integer>();
+
         
         while(paramNames.hasMoreElements()) {
             String paramName = (String)paramNames.nextElement();
+            
+            System.out.println(paramName);
             
             String[] paramValues = req.getParameterValues(paramName);
             
@@ -72,8 +75,11 @@ public class HelloServlet extends HttpServlet {
             	time_end = paramValues[0];
             else if (paramName == "optionsRadios")
             	option_radio = Integer.valueOf(paramValues[0]);
-            else if (paramName.startsWith("class")) {
+            else if (paramName.startsWith("man")) {
             	manClass.add(Integer.valueOf(paramValues[0]));
+            }
+            else if (paramName.startsWith("opt")) {
+            	optClass.add(Integer.valueOf(paramValues[0]));
             }
         }
         
@@ -84,11 +90,30 @@ public class HelloServlet extends HttpServlet {
         	man[i] = manClass.get(i);
         }
         
+        int[] opt = new int[optClass.size()];
+        for (int i = 0; i < optClass.size(); i++) {
+        	opt[i] = manClass.get(i);
+        }
+        
         int time_start_int = changeTime(time_start);
         int time_end_int = changeTime(time_end);
         
-
-        User bob = new User(1, man, null, time_start_int, time_end_int);
+        /*
+         * option_radio : 1. North of Kellogg   2. South of Kellogg 3. I don't mind walking!
+         */
+        User bob = new User(option_radio, man, opt, time_start_int, time_end_int);
+        
+        System.out.println("option_radio: " + option_radio);
+        for (int i = 0; i < man.length; i++) {
+        	System.out.println("man" + i + ": " + man[i]);
+        }
+        for (int i = 0; i < opt.length; i++) {
+        	System.out.println("opt" + i + ": " + opt[i]);
+        }
+        
+        System.out.println("time_start_int: " + time_start_int);
+        System.out.println("time_end_int: " + time_end_int);
+        
         System.out.print(bob);
         
         String[] message = bob.getSchedule();
@@ -102,7 +127,7 @@ public class HelloServlet extends HttpServlet {
       
     	req.setAttribute("message", result); // This will be available as ${message}
     	System.out.println(result);
-    	req.getRequestDispatcher("schedule.html").forward(req, resp);
+    	req.getRequestDispatcher("schedules.html").forward(req, resp);
 
     	
     	
