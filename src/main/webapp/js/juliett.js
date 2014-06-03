@@ -202,7 +202,7 @@ $(document).ready( function(){
 			
 			//debugging
 			mycoursestring += course[i].title;
-			mycoursestring += "<br>course info is: " + "'"+courseinfo.toString(2)+"'";
+			mycoursestring += "<br>course info is: " +courseinfo.toString(2);
 			mycoursestring += "<br><br>";
 			
 			updateTimeTable(mycoursetimes, mycoursedays, courseinfo);
@@ -229,7 +229,8 @@ $(document).ready( function(){
 		
 		function makecoursepop(thiscourse){
 			coursedisplay = getcoursedisplay(thiscourse);
-			return "<div type='button' class='btn poppop' data-container='body' data-toggle='popover' data-placement='bottom' data-original-title='Title' data-trigger='hover' data-content='class information.'>" + coursedisplay + "</div>";
+			popinfo = getpopinfo(thiscourse);
+			return "<div type='button' class='btn poppop' data-container='body' data-toggle='popover' data-placement='bottom' data-trigger='hover' data-content='" + popinfo + "'>" + coursedisplay + "</div>";
 		}		
 	
 		function getcoursedisplay(thiscourse){
@@ -242,7 +243,9 @@ $(document).ready( function(){
 			return thiscourse.subject + " " + thiscourse.catalog_num + "<br>" + thiscourse.title;
 		}
 		
-		
+		function getpopinfo(thiscourse){
+			return "Topic: " + thiscourse.topic + "Instructor: " + thiscourse.instructor.name +" Section: " + thiscourse.section + " Room: " + thiscourse.room + " starts: " + thiscourse.start_time +" ends: " + thiscourse.end_time;
+		}
 
 		function getencodeddays(thiscourse){ //transforms input string into hex vals
 			var encodeddays = 0x0;
