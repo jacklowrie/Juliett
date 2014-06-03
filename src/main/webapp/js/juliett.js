@@ -228,7 +228,7 @@ $(document).ready( function(){
 		
 		function makecoursepop(thiscourse){
 			coursedisplay = getcoursedisplay(thiscourse);
-			return "<a type='button' class='btn poppop' href='#' data-container='body' data-toggle='popover' data-placement='bottom' data-original-title='Title' data-trigger='hover' data-content='class information.'>" + coursedisplay + "</a>";
+			return "<div type='button' class='btn poppop' data-container='body' data-toggle='popover' data-placement='bottom' data-original-title='Title' data-trigger='hover' data-content='class information.'>" + coursedisplay + "</div>";
 		}		
 	
 		function getcoursedisplay(thiscourse){
