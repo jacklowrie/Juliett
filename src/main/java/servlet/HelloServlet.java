@@ -145,7 +145,8 @@ public class HelloServlet extends HttpServlet {
       
     	req.setAttribute("message", result); // This will be available as ${message}
     	System.out.println(result);
-    	req.getRequestDispatcher("schedules.jsp").forward(req, resp);
+    	//req.getRequestDispatcher("schedules.jsp").forward(req, resp);
+    	resp.sendRedirect("schedules.html?message=" + result);
 
     	
     	

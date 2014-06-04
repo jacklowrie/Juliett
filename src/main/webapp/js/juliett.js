@@ -204,7 +204,11 @@ $(document).ready( function(){
         return Caesar;
     }());
 
-    Caesar.getCourses(courseIDs)
+
+    //Caesar.getCourses(courseIDs)
+    var courseIDs = getUrlVars()["message"]
+    
+    Caesar.getCourses([58464,58459])
 	/*
 		courseIDs is defined in the jsp file which is got from server.
 	*/
@@ -212,6 +216,14 @@ $(document).ready( function(){
 
     console.log(course[0].title)
 
+
+	function getUrlVars() {
+	    var vars = {};
+	    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+	        vars[key] = value;
+	    });
+	    return vars;
+	}
 
 
 	getcourseinfo();
