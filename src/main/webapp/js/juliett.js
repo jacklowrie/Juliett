@@ -235,7 +235,9 @@ function getcoursedisplay(thiscourse){
 }
 
 function getpopinfo(thiscourse){
-	return "Course ID: " + thiscourse.id + "<br>Topic: " + thiscourse.topic + "<br>Instructor: " + thiscourse.instructor.name +"<br>Section: " + thiscourse.section + "<br>Room: " + thiscourse.room + "<br>starts: " + thiscourse.start_time +"<br>ends: " + thiscourse.end_time;
+	var coursetopic = thiscourse.topic
+	coursetopic = coursetopic.replace("\'", "")
+	return "Course ID: " + thiscourse.id + "<br>Topic: " + coursetopic + "<br>Instructor: " + thiscourse.instructor.name +"<br>Section: " + thiscourse.section + "<br>Room: " + thiscourse.room + "<br>starts: " + thiscourse.start_time +"<br>ends: " + thiscourse.end_time;
 }
 
 		function getencodeddays(thiscourse){ //transforms input string into hex vals
