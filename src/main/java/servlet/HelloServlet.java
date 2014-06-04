@@ -119,21 +119,25 @@ public class HelloServlet extends HttpServlet {
         System.out.println("time_start_int: " + time_start_int);
         System.out.println("time_end_int: " + time_end_int);
         
+        /* *************************************** 
+         * Team_Juliett_processor is not stable yet
+         */
         
-//        Team_Juliett_processor process = null;
-//		try {
-//			//process = new Team_Juliett_processor(option_radio, man, opt, time_start_int, time_end_int);
-//			process = new Team_Juliett_processor(1, new int[]{58458, 58459, 58460, 58461}, new int[]{58470, 58471}, 1000, 1700);
-//		} catch (ParseException e) {
-//			e.printStackTrace();
-//		}
-//        
+        Team_Juliett_processor process = null;
+		try {
+			process = new Team_Juliett_processor(option_radio, man, opt, time_start_int, time_end_int);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+        int[] message = process.getSchedule();
+        
+        /* ******************************
+         * Team_Juliett_processor part
+         */
         
         
-        
-        //int[] message = process.getSchedule();
-        
-		int[] message = {58464, 58459};
+        /* hardcoded wit this sentence */ 
+//		int[] message = {58464, 58459};
 		
         String result = "[";
     	
