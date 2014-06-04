@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
@@ -20,6 +19,14 @@
 </head>
 
 <body>
+
+<script>
+
+courseIDs = <%= request.getAttribute("message") %>
+	
+</script>
+
+
 	<div class="container" id="schedpagecontainer">
 
 		<table class="table table-striped table-bordered">

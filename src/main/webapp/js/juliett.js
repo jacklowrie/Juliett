@@ -181,7 +181,7 @@ $(document).ready( function(){
 
 	
 
-	var course = [];
+	var course = []
 
 	var Caesar;
     Caesar = (function() {
@@ -204,9 +204,15 @@ $(document).ready( function(){
         return Caesar;
     }());
 
-    Caesar.getCourses([58464,58459])
+    Caesar.getCourses(courseIDs)
+	/*
+		courseIDs is defined in the jsp file which is got from server.
+	*/
+
 
     console.log(course[0].title)
+
+
 
 	getcourseinfo();
 	$('.poppop').popover({html : true});
@@ -262,7 +268,8 @@ function getcoursedisplay(thiscourse){
 
 function getpopinfo(thiscourse){
 	var coursetopic = thiscourse.topic
-	coursetopic = coursetopic.replace("\'", "")
+	if (coursetopic != null)
+		coursetopic = coursetopic.replace("\'", "")
 	return "Course ID: " + thiscourse.id + "<br>Topic: " + coursetopic + "<br>Instructor: " + thiscourse.instructor.name +"<br>Section: " + thiscourse.section + "<br>Room: " + thiscourse.room + "<br>starts: " + thiscourse.start_time +"<br>ends: " + thiscourse.end_time;
 }
 
