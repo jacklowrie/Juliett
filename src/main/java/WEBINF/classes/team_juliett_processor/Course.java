@@ -4,17 +4,20 @@
  * and open the template in the editor.
  */
 package team_juliett_processor;
+import java.util.*;
+
 
 /**
  *
  * @author Ethan
  */
-public class Course{
+public class Course implements Comparable{
     
 // beginning and end of class--formatted HHMM
     private String course_name; 
     protected int start_time;
     protected int end_time;
+    private String NorthBuildings;
     
 // days of the week on which the class is held (binary format)
     private boolean[] days_of_week;
@@ -48,13 +51,26 @@ public class Course{
             //days_of_week[i] = new boolean();
             days_of_week[i] = false;
         }
-        this.course_name = null;
+        this.course_name = "";
         this.course_number = 0;
         this.distros = null;
         this.end_time = 0;
         this.location = 0;
         this.start_time = 0;
+        createStringofBuildings();
         
+    }
+    
+    private void createStringofBuildings()
+    {
+       NorthBuildings = "Kellogg Jacobs Center Andersen Hall Women's Center 2006 Sher "
+               + "Fiedler Hillel Center Canterbury House Family Institute 2010 Sh 2016 Sh 620 "
+               + "Library Place 626 Library Place Lunt Hall Shanley Hall Cresap Laboratory Central "
+               + "Utility Plant 2040 Sheridan Road 617 Library Place Sheil "
+               + "Catholic Center Garett-Evangelical Theological Seminary Annenberg Hall "
+               + "Silverman Hall 2122 Sheridan Ford Catalysis Center Ryan Hall Hogan Pancoe "
+               + "Allen Center Cook Hall Tech Seeley G. Mudd Library Frances 627 Dartmouth "
+               + "Place 620 Lincoln Street 629 Colfax Street 625 Colfax Street";
     }
     
     public String getIDString(){
@@ -97,6 +113,19 @@ public class Course{
         return course_name;
     }
     
+    public void setLocation(String l)
+    {
+        if(NorthBuildings.indexOf(l) == -1)
+            location = -1;
+        else
+            location = 1;
+    }
+    
+    public int getLocation(){
+        return location;
+    }
+            
+    
     
     
     public void setDaysofWeek(String t){
@@ -129,8 +158,7 @@ public class Course{
     public void setEndTime(String u){
         this.end_time = Integer.parseInt(u);
     }
-    
-    
+        
     public String toString(){
         String toPrint = ""; 
         toPrint += course_name;
@@ -139,6 +167,22 @@ public class Course{
         return toPrint;
     }
     
+    //compares the first course location to the next course location
+    //returns 1 if both are the same, and -1 if you have to go north to south or south to north
+    public int nextLocationRank(Course next)
+    {
+       if(next.getLocation() == this.getLocation()) 
+           return 1;
+       else
+           return -1;
+    }
 
-
-}   // end definition
+    @Override
+    public int compareTo(Object o) 
+    {
+        if(o == this)
+            return 1;
+        else
+            return 0;
+    }
+}

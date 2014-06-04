@@ -5,7 +5,7 @@
  */
 
 package team_juliett_processor;
-
+// hi
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -24,49 +24,43 @@ public class Team_Juliett_processor {
      * @param args the command line arguments
      */
     private static int number_of_courses;
+    private static int[] mainIDs;
     
-    public static void main(String[] args) throws IOException, ParseException{
+    public Team_Juliett_processor(int loca, int[] mand_courses, int[] optional_courses, int start_t, int end_t) throws IOException, ParseException{
         
-        BufferedReader br = new BufferedReader(new FileReader("EECS_DB.txt"));
-        
-        
+        // ~~ Begin search of the file ~~ //
+        BufferedReader br = new BufferedReader(new FileReader("src/main/java/WEBINF/classes/team_juliett_processor/EECS_DB.txt"));
         String line;
         
-        /*//THIS IS FOR TESTING
-        Course course1;
-        course1 = new Course(58458);
-        Course course2;
-        course2 = new Course(58459);
-        Course course3;
-        course3 = new Course(58460);
-        Course course4;
-        course4 = new Course(58461);
-        
-        Course[] courselist;
-        courselist = new Course[4]
-        courselist[0] = course1;
-        courselist[1] = course2;
-        courselist[2] = course3;
-        courselist[3] = course4;
-        //THIS IS FOR TESTING*/
         
         User bob; // accept integer array from front-end team
-        bob = new User(1, new int[]{58458, 58459, 58460, 58461}, null, 1000, 1700);
-        System.out.println(bob.toString());
         
-        int[] bobscourses = bob.getMands();
-        int[] bobscourses2 = bob.getOptional();
-        int numberofCourses = bobscourses.length + bobscourses2.length;
-        Course[] bobsCourses;
-        bobsCourses = new Course[numberofCourses];
+        //================================================================/////
+        //ZHAOYANG this part needs to take in input from the front end====/////
+        //bob can either be given by the front end and just make bob = frontEndBob
+        //or the inputs from bob can be given by the front end
+        //IMPORT FROM THE FRONT END////
+        bob = new User(loca, mand_courses, optional_courses, start_t, end_t);
+        System.out.println(bob);
+        //=================================================================////
         
+        int[] bobsMcoursesint = bob.getMands();
+        int[] bobsOcoursesint = bob.getOptional();
+        int numberofCourses = bobsMcoursesint.length;
+        int numberofOCourses = bobsOcoursesint.length;
         
+        Course[] bobsMcourses;
+        Course[] bobsOcourses;
+        
+        bobsMcourses = new Course[numberofCourses];
+        bobsOcourses = new Course[numberofOCourses];
+
         while((line = br.readLine()) != null) {
             
             for (int i=0; i<numberofCourses; i++){
                 
                 String id;
-                id = Integer.toString(bobscourses[i]);
+                id = Integer.toString(bobsMcoursesint[i]);
                 //System.out.println(courselist[i]);
                 if (line.contains(id)){
                     
@@ -76,6 +70,13 @@ public class Team_Juliett_processor {
                     int dIndex = line.indexOf("start_date");
                     int tIndex = line.indexOf("title");
                     int t1Index = line.indexOf("term");
+                    
+                    // ~~ Start Location Functions ~~ //
+                    int lIndex = line.indexOf("room");
+                    
+                    String loc = (line.substring(lIndex+7, line.indexOf("meeting_days") - 2));
+  
+                    
                     
                     String title = (line.substring(tIndex+9, t1Index-4));
                     String meetingDays = (line.substring(mdIndex+16, stIndex-4));
@@ -88,31 +89,104 @@ public class Team_Juliett_processor {
                     String endTimeS1 = (line.substring(etIndex+15, etIndex+17));
                     endTimeS += endTimeS1;
 
-                    bobsCourses[i] = new Course(id);
+                    bobsMcourses[i] = new Course(id);
 
-                    bobsCourses[i].setName(title);
-                    bobsCourses[i].setDaysofWeek(meetingDays);
-                    bobsCourses[i].setStartTime(startTimeS);
-                    bobsCourses[i].setEndTime(endTimeS);
-                    
-                    System.out.println(bobsCourses[i].getIDString());
-                    System.out.println(bobsCourses[i].toString());
-
+                    bobsMcourses[i].setName(title);
+                    bobsMcourses[i].setDaysofWeek(meetingDays);
+                    bobsMcourses[i].setStartTime(startTimeS);
+                    bobsMcourses[i].setEndTime(endTimeS);
+                    bobsMcourses[i].setLocation(loc);
 
                     
-                    System.out.println("\n");
+                    
                     //c.setDaysofWeek(meetingDays));
                     //courses[i] = c;
                 }
 
                 
             }
+            for (int i=0; i<numberofOCourses; i++){
+                
+                String id;
+                id = Integer.toString(bobsOcoursesint[i]);
+                //System.out.println(courselist[i]);
+                if (line.contains(id)){
+                    
+                    int mdIndex = line.indexOf("meeting_days");
+                    int stIndex = line.indexOf("start_time");
+                    int etIndex = line.indexOf("end_time");
+                    int dIndex = line.indexOf("start_date");
+                    int tIndex = line.indexOf("title");
+                    int t1Index = line.indexOf("term");
+                    
+                    // ~~ Start Location Functions ~~ //
+                    int lIndex = line.indexOf("room");
+                    
+                    String loc = (line.substring(lIndex+7, line.indexOf("meeting_days") - 2));
+  
+                    
+                    
+                    String title = (line.substring(tIndex+9, t1Index-4));
+                    String meetingDays = (line.substring(mdIndex+16, stIndex-4));
+                    
+                    String startTimeS = "" + (line.substring(stIndex+14,stIndex+16));
+                    String startTimeS1 = (line.substring(stIndex+17,stIndex+19));
+                    startTimeS += startTimeS1;
+                    
+                    String endTimeS = (line.substring(etIndex+12, etIndex+14));
+                    String endTimeS1 = (line.substring(etIndex+15, etIndex+17));
+                    endTimeS += endTimeS1;
+
+                    bobsOcourses[i] = new Course(id);
+
+                    bobsOcourses[i].setName(title);
+                    bobsOcourses[i].setDaysofWeek(meetingDays);
+                    bobsOcourses[i].setStartTime(startTimeS);
+                    bobsOcourses[i].setEndTime(endTimeS);
+                    bobsOcourses[i].setLocation(loc);
+
+                    
+               
+                    //c.setDaysofWeek(meetingDays));
+                    //courses[i] = c;
+                }
+
                          
+        }
         }
         br.close();
         
         
-      
+        
+        //~~Begin building the schedule~~//
+        
+  
+        schedule unChecked = new schedule(bobsMcourses,bobsOcourses);
+        ScheduleChecker a = new ScheduleChecker(unChecked);
+        schedule[] validSchedules = a.resolveConflicts();
+        ScheduleGenerator b = new ScheduleGenerator(validSchedules, bob,bobsMcourses, bobsOcourses);
+        schedule finalSchedule = b.getBestSchedule();
+        
+        int[] courseIDs = finalSchedule.getIDs();
+        mainIDs = courseIDs;
+        
+        /*for(int i = 0; i < courseIDs.length; i++)
+        {
+            System.out.println(courseIDs[i] + " ");
+        }*/
+        
+        
+        //get the course[]
+        //move int[] id's
+        //lookup course id and send all the information in the key back to jack
+        
+    }
+    
+    public int[] getSchedule()
+    {
+        return mainIDs;
     }
 
 }
+
+

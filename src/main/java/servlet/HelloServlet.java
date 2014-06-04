@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 
@@ -107,8 +108,6 @@ public class HelloServlet extends HttpServlet {
         /*
          * option_radio : 1. North of Kellogg   2. South of Kellogg 3. I don't mind walking!
          */
-        User bob = new User(option_radio, man, opt, time_start_int, time_end_int);
-        
         System.out.println("option_radio: " + option_radio);
         for (int i = 0; i < man.length; i++) {
         	System.out.println("man" + i + ": " + man[i]);
@@ -120,14 +119,23 @@ public class HelloServlet extends HttpServlet {
         System.out.println("time_start_int: " + time_start_int);
         System.out.println("time_end_int: " + time_end_int);
         
-        System.out.print(bob);
         
-        String[] message = bob.getSchedule();
+        Team_Juliett_processor process = null;
+		try {
+			process = new Team_Juliett_processor(option_radio, man, opt, time_start_int, time_end_int);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+        
+        
+        
+        
+        int[] message = process.getSchedule();
         
         String result = "[";
     	
-    	for (String s : message) {
-    		result = result.concat("{" + s + "}");
+    	for (int m : message) {
+    		result = result.concat("{" + m + "}");
     	}
     	result.concat("]");
       
