@@ -115,7 +115,7 @@
                 // CASE 1: Search form contains 'subject' but no 'catalogNum' - search by subject ONLY
                 if (catalogNum == undefined || catalogNum === "") {
                     subject = subject.toUpperCase();
-                    Caesar.getCourses(4540, subject,
+                    Caesar.getCourses(4520, subject,
                     function(err, courses) {
 
                         // Iterate through the search results and store the top 10 values

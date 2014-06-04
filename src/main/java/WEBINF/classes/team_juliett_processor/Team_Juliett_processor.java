@@ -29,7 +29,7 @@ public class Team_Juliett_processor {
     public Team_Juliett_processor(int loca, int[] mand_courses, int[] optional_courses, int start_t, int end_t) throws IOException, ParseException{
         
         // ~~ Begin search of the file ~~ //
-        BufferedReader br = new BufferedReader(new FileReader("src/main/java/WEBINF/classes/team_juliett_processor/EECS_DB.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("src/main/java/WEBINF/classes/team_juliett_processor/FinalDB.txt"));
         String line;
         
         
