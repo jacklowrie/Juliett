@@ -1,17 +1,17 @@
 ### Description
 
-	TODO:
+This a project about scheduling courses for Northwestern student. 
 
 ### Set up
 	
-Host: heroku
+Host: Heroku
 
 Server: Tomcat
 
-Management: Maven
+Management: Maven (mvn command tool required)
 
 
-#### 1. Create repo
+### 1. Create repo
 
 Make sure you have the same codes as current repo.  
 If you already set a git direcotory on your laptop, run:  
@@ -22,7 +22,9 @@ Otherwise, find a location and run:
 
 	git clone git@github.com:JBLowrie/Juliett.git
 	
-#### 2. Import it in Eclipse
+### 2. Developing with Eclipse
+
+#### 2.1 Import it in Eclipse
 
 I strongly recommend to use eclipse EE. [--> Download](https://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/keplersr2)  
 (If you are using eclipse SE, make sure you have maven installed....).
@@ -38,7 +40,7 @@ After seconds, you should see a project like this:
 
 ![2](https://raw.githubusercontent.com/JBLowrie/Juliett/master/readme_image/3.png)
 
-#### 3. Create "run tool"
+#### 2.2 Create "run tool"
 
 The program could not simply run. In eclipse, choose "Run" -> "External Tools" -> "External Tools Configuration".  
 
@@ -56,7 +58,7 @@ click "Browse Workspace..." for Working Direcotry, choose project name:
 
 ![2](https://raw.githubusercontent.com/JBLowrie/Juliett/master/readme_image/6.png)
 
-#### 4. Run
+#### 2.3 Run
 Ok, everything almost done. Make sure you use external tools to run the program.
 
 If you have some problem like "permission denied", go to the directory holds "run.sh", and typein the command:
@@ -70,12 +72,44 @@ The program will run a server on loalhost, you can visit it in your borwser with
 
 Pay attention that it will automatically find html pages udner **/src/main/webapp/**, by default, it runs index.html. 
 
-#### 5. Set up in heroku
+### 3. simple deploy 
+
+For MAC OSX, make sure maven is installed, otherwise, use:
+
+	sudo brew install maven
+
+Now, in the root directory, run:
+
+	sh run.sh
+
+If codes are good, you will have a jave application running. Just open your browser and open "localhost:8080", you will see the app.
+
+
+### 4. Set up in heroku
 
 You can also push your codes to heroku and see it in a public link: http://juliett-nu.herokuapp.com/. 
 
-##### 5.1 Install heroku, 
-[Start here]("https://devcenter.heroku.com/articles/quickstart"). Briefly speaking, heroku helps you do all the things on backend, and what you need is to install a command tool to use it.
+#### 4.1 Install heroku
 
-......
+[Start here!](https://devcenter.heroku.com/articles/quickstart). Briefly speaking, heroku helps you do all the things on backend, and what you need is to install a command tool to use it.
+
+#### 4.2 deploy codes 
+
+Assume all heroku things are set, which means your terminal knows your heroku account and knows "heroku command".
+
+1. Create one new app:
+
+	<pre>
+	heroku create
+	heroku push heroku master
+	</pre>
+
+2. Push to a existing app: (**Make sure you are in the collaborator of that app**)
+	
+	<pre>
+	git remote add heroku
+	git remote heroku set-url git@heroku.com:juliett-nu.git
+	git push heroku master
+	</pre>
+If no errors happen, you will have one link which hosts the your app.
 
