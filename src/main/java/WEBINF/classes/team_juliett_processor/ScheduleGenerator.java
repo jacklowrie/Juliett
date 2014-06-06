@@ -92,7 +92,8 @@ public class ScheduleGenerator
         rankOnNumOfMandatoryClasses(s);
         
         //change scheduleScore based on the start and end time prefrences - middle significant
-        rankOnTimePrefrences(userStartTime, userEndTime, scheduleSt, scheduleEt, s);
+        if(userStartTime != 2500 && userEndTime !=2500)
+            rankOnTimePrefrences(userStartTime, userEndTime, scheduleSt, scheduleEt, s);
         
         //change the schedule score based on the locations of each class - least significant
         rankOnLocation(s);
@@ -114,12 +115,17 @@ public class ScheduleGenerator
         else if(numberofMands == 4)
             a.scheduleScore += 40;
         else
-            a.scheduleScore -= 10;
+            a.scheduleScore += 1;
     }
     
     private void rankOnTimePrefrences(int uS, int uE, int sS, int sE, schedule a)
     {
         //now adjust the schedule scores based on time conflicts and prefrences
+        //include functionality for 2500 values meaning that any time is ok
+        if(uS == 2500 && sE <= uE)
+            a.scheduleScore += 5;
+        if(uE == 2500 && sS >= uS)
+            a.scheduleScore += 5;
         if(sS >= uS && sE <= uE)
             a.scheduleScore += 10;
         else if(sS < uS && sE <= uE)
@@ -167,10 +173,12 @@ public class ScheduleGenerator
     private int howManyMands(Course[] m)
     {
         int mandL = m.length;
+        if(mandL == 0)
+            return 0;
         Course[] mandsTemp = mands;
         int numMands = 0;
         for (int i=0; i<mandL; i++){
-            for (int j = 0; j<4; j++)
+            for (int j = 0; j<mandsTemp.length; j++)
                 if(m[i].compareTo(mandsTemp[j]) == 1)
                      numMands++;   
         }

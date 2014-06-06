@@ -131,6 +131,8 @@ public class ScheduleChecker {
         {
             newList.add(l1.get(i));
         }
+        if(newList.size() == 0 || newList == null)
+            return l1;
         return newList;
     }
 
@@ -182,6 +184,10 @@ public class ScheduleChecker {
     //makes every possible combination of courses
     public ArrayList<ArrayList<Course>> makeFullList(ArrayList<ArrayList<Course>> mandList, ArrayList<ArrayList<Course>> optList)
     {
+       if(mandList.size() == 0 || mandList == null)
+           return optList;
+       if(optList.size() == 0 || optList == null)
+           return mandList;
        ArrayList<ArrayList<Course>> fullList = new ArrayList<ArrayList<Course>>();
        //each m is one of the possible list of mandatory classes
        //each o is one of the possible lists of optional classes

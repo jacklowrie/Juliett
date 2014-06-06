@@ -41,7 +41,7 @@ public class Team_Juliett_processor {
         //or the inputs from bob can be given by the front end
         //IMPORT FROM THE FRONT END////
         bob = new User(loca, mand_courses, optional_courses, start_t, end_t);
-        System.out.println(bob);
+        
         //=================================================================////
         
         int[] bobsMcoursesint = bob.getMands();
@@ -75,22 +75,33 @@ public class Team_Juliett_processor {
                     int lIndex = line.indexOf("room");
                     
                     String loc = (line.substring(lIndex+7, line.indexOf("meeting_days") - 2));
+                    if(loc.contains("TBA"))
+                        loc = "Kellogg ";
   
                     
                     
                     String title = (line.substring(tIndex+9, t1Index-4));
+                    if(title.contains("ul"))
+                            title = "No Title for this class";
+                    
                     String meetingDays = (line.substring(mdIndex+16, stIndex-4));
+                    if(meetingDays.contains("ul"))
+                            meetingDays = "Tu";
                     
                     String startTimeS = "" + (line.substring(stIndex+14,stIndex+16));
                     String startTimeS1 = (line.substring(stIndex+17,stIndex+19));
                     startTimeS += startTimeS1;
+                    if(startTimeS.contains("ul"))
+                            startTimeS = "7000";
                     
                     String endTimeS = (line.substring(etIndex+12, etIndex+14));
                     String endTimeS1 = (line.substring(etIndex+15, etIndex+17));
                     endTimeS += endTimeS1;
+                    if(endTimeS.contains("ul"))
+                        endTimeS = "8000";
 
-                    bobsMcourses[i] = new Course(id);
-
+                    
+                    bobsMcourses[i] = new Course(id);   
                     bobsMcourses[i].setName(title);
                     bobsMcourses[i].setDaysofWeek(meetingDays);
                     bobsMcourses[i].setStartTime(startTimeS);
@@ -160,7 +171,10 @@ public class Team_Juliett_processor {
         
         //~~Begin building the schedule~~//
         
-  
+        //first clean up nescesary courses
+        
+        
+        
         schedule unChecked = new schedule(bobsMcourses,bobsOcourses);
         ScheduleChecker a = new ScheduleChecker(unChecked);
         schedule[] validSchedules = a.resolveConflicts();
@@ -170,10 +184,10 @@ public class Team_Juliett_processor {
         int[] courseIDs = finalSchedule.getIDs();
         mainIDs = courseIDs;
         
-        /*for(int i = 0; i < courseIDs.length; i++)
+        for(int i = 0; i < courseIDs.length; i++)
         {
             System.out.println(courseIDs[i] + " ");
-        }*/
+        }
         
         
         //get the course[]
