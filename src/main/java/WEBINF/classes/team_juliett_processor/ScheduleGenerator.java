@@ -57,7 +57,10 @@ public class ScheduleGenerator
         for(int i = 0; i < poss.length; i++)
         {
             if(poss[i].getRank() > highestRank)
+            {
                 bestIndex = i;
+                highestRank = poss[i].getRank();
+            }
         }
         
         //set bestSchedule to the bestRank
@@ -140,6 +143,8 @@ public class ScheduleGenerator
     
     private void rankOnLocation(schedule s)
     {
+        if(bob.getLoc() == 3)
+            return;
         int totalRank = 0;
         Course[] a = s.getAllCourses();
         

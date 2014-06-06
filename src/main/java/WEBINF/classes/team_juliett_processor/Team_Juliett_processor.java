@@ -92,13 +92,13 @@ public class Team_Juliett_processor {
                     String startTimeS1 = (line.substring(stIndex+17,stIndex+19));
                     startTimeS += startTimeS1;
                     if(startTimeS.contains("ul"))
-                            startTimeS = "7000";
+                            startTimeS = "0700";
                     
                     String endTimeS = (line.substring(etIndex+12, etIndex+14));
                     String endTimeS1 = (line.substring(etIndex+15, etIndex+17));
                     endTimeS += endTimeS1;
                     if(endTimeS.contains("ul"))
-                        endTimeS = "8000";
+                        endTimeS = "0800";
 
                     
                     bobsMcourses[i] = new Course(id);   
@@ -107,15 +107,9 @@ public class Team_Juliett_processor {
                     bobsMcourses[i].setStartTime(startTimeS);
                     bobsMcourses[i].setEndTime(endTimeS);
                     bobsMcourses[i].setLocation(loc);
-
-                    
-                    
-                    //c.setDaysofWeek(meetingDays));
-                    //courses[i] = c;
-                }
-
-                
+                } 
             }
+            
             for (int i=0; i<numberofOCourses; i++){
                 
                 String id;
@@ -134,19 +128,27 @@ public class Team_Juliett_processor {
                     int lIndex = line.indexOf("room");
                     
                     String loc = (line.substring(lIndex+7, line.indexOf("meeting_days") - 2));
-  
-                    
+                    if(loc.contains("TBA"))
+                        loc = "Kellogg ";
                     
                     String title = (line.substring(tIndex+9, t1Index-4));
+                     if(title.contains("ul"))
+                            title = "No Title for this class";
                     String meetingDays = (line.substring(mdIndex+16, stIndex-4));
+                    if(meetingDays.contains("ul"))
+                            meetingDays = "Tu";
                     
                     String startTimeS = "" + (line.substring(stIndex+14,stIndex+16));
                     String startTimeS1 = (line.substring(stIndex+17,stIndex+19));
                     startTimeS += startTimeS1;
+                     if(startTimeS.contains("ul"))
+                            startTimeS = "7000";
                     
                     String endTimeS = (line.substring(etIndex+12, etIndex+14));
                     String endTimeS1 = (line.substring(etIndex+15, etIndex+17));
                     endTimeS += endTimeS1;
+                    if(endTimeS.contains("ul"))
+                        endTimeS = "8000";
 
                     bobsOcourses[i] = new Course(id);
 
@@ -156,10 +158,6 @@ public class Team_Juliett_processor {
                     bobsOcourses[i].setEndTime(endTimeS);
                     bobsOcourses[i].setLocation(loc);
 
-                    
-               
-                    //c.setDaysofWeek(meetingDays));
-                    //courses[i] = c;
                 }
 
                          
@@ -202,5 +200,6 @@ public class Team_Juliett_processor {
     }
 
 }
+
 
 

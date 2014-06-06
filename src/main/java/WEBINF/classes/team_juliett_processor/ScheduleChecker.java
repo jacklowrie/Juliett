@@ -43,11 +43,12 @@ public class ScheduleChecker {
        //Make each combination of mandatory classes with every possible combinations of additional classes//
        ArrayList<ArrayList<Course>> allSchedulesList = makeFullList(mandList, optList);
 
-       //Remove all combinations that are not four in length
-       allSchedulesList = shortenList(allSchedulesList);
-
        //Then remove conflicts from the total list
        allSchedulesList = removeConflicts(allSchedulesList);
+       
+       //Remove all combinations that are not four in length
+       //if none are 4 in length, then don't change the list
+       allSchedulesList = shortenList(allSchedulesList);
 
        //Convert from ArrayList to an arrayof Schedules//
        schedule allSchedules = new schedule(allSchedulesList, l1, l2);
@@ -114,7 +115,7 @@ public class ScheduleChecker {
         return validList;
     }
 
-    //Shortens the list of l1 to a specficies value
+    //Shortens the list of l1 to a specficied value
     public static ArrayList<ArrayList<Course>> shortenList(ArrayList<ArrayList<Course>> l1)
     {
         ArrayList<Integer> validIndexes = new ArrayList<Integer>();
@@ -139,6 +140,10 @@ public class ScheduleChecker {
     //Returns true if Course a and Course c have conflicts
     public boolean conflict(Course a, Course c)
     {
+        if(a == null)
+            return false;
+        else if(c == null)
+            return false;
         for (int i = 0; i <5; i++){
             if (a.get_days_of_week()[i] && c.get_days_of_week()[i])
                 if ((a.start_time == c.start_time) || (a.start_time < c.end_time && a.start_time > c.start_time)
