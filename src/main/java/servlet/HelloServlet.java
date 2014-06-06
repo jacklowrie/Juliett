@@ -139,13 +139,13 @@ public class HelloServlet extends HttpServlet {
         /* hardcoded wit this sentence */ 
 //		int[] message = {58464, 58459};
 		
-        String result = "[";
+        String result = "";
     	
     	for (int m : message) {
     		result = result.concat( String.valueOf( m ) + ",");
     	}
     	result = result.substring(0, result.length() - 1);
-    	result = result.concat("]");
+    	
       
     	req.setAttribute("message", result); // This will be available as ${message}
     	System.out.println(result);

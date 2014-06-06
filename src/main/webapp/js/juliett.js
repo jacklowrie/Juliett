@@ -189,8 +189,17 @@ $(document).ready( function(){
 
         var loadedTerms = {};
 
-        Caesar.getCourses = function(id) {
+        Caesar.getCourses = function(tmpid) {
 
+        	var id = []
+        	
+        	if (tmpid.indexOf(",") == -1) {
+        		id.push(tmpid);
+        	}
+        	else 
+        		id = tmpid.split(",");
+        	
+        	
         	for (var i = 0; i < id.length; i++) {
         		$.ajax({
         			url: base + 'courses/?id=' + id[i],
@@ -205,10 +214,11 @@ $(document).ready( function(){
     }());
 
 
-    //Caesar.getCourses(courseIDs)
+    var courseIDs = []
     var courseIDs = getUrlVars()["message"]
-    
-    Caesar.getCourses([58464,58459])
+    Caesar.getCourses(courseIDs)
+
+    //Caesar.getCourses([58464,58459])
 	/*
 		courseIDs is defined in the jsp file which is got from server.
 	*/
