@@ -42,7 +42,7 @@ public class Course implements Comparable{
      * Constructs the course object given a courseID.
      * Uses the courseID to find all relevant information about the course
      * like location, meeting days, meeting times, etc...
-     * @param course_id 
+     * @param course_id The string representation of the courseID.
      */
     public Course(String course_id) {
         this.course_id = course_id;

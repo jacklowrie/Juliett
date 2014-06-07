@@ -255,6 +255,11 @@
             }), $('<div/>', {
                 'class': "col-lg-9 text-danger",
                 'text': "Time: " + $(this).data("courseData").meeting_days + " " + $(this).data("courseData").start_time + "-" + $(this).data("courseData").end_time
+// This part for test
+            }), $('<div/>', {
+                'class': "col-lg-9 text-courseid",
+                'text': "ID: " + $(this).data("courseData").id
+// End of test part
             }), $('<div/>', {
                 'class': "col-lg-3"
             }).append($('<button/>', {

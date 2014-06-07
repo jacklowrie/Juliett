@@ -68,19 +68,19 @@ public class Team_Juliett_processor {
                     int stIndex = line.indexOf("start_time");
                     int etIndex = line.indexOf("end_time");
                     int dIndex = line.indexOf("start_date");
-                    int tIndex = line.indexOf("title");
-                    int t1Index = line.indexOf("term");
+                    int tIndex = line.indexOf("\"title\"");
+                    int t1Index = line.indexOf("\"term\"");
                     
                     // ~~ Start Location Functions ~~ //
                     int lIndex = line.indexOf("room");
                     
                     String loc = (line.substring(lIndex+7, line.indexOf("meeting_days") - 2));
-                    if(loc.contains("TBA"))
+                    if(loc.contains("TBA") || loc.contains("null"))
                         loc = "Kellogg ";
   
                     
                     
-                    String title = (line.substring(tIndex+9, t1Index-4));
+                    String title = (line.substring(tIndex+10, t1Index - 3));
                     if(title.contains("ul"))
                             title = "No Title for this class";
                     
@@ -121,17 +121,17 @@ public class Team_Juliett_processor {
                     int stIndex = line.indexOf("start_time");
                     int etIndex = line.indexOf("end_time");
                     int dIndex = line.indexOf("start_date");
-                    int tIndex = line.indexOf("title");
-                    int t1Index = line.indexOf("term");
+                    int tIndex = line.indexOf("\"title\"");
+                    int t1Index = line.indexOf("\"term\"");
                     
                     // ~~ Start Location Functions ~~ //
                     int lIndex = line.indexOf("room");
                     
                     String loc = (line.substring(lIndex+7, line.indexOf("meeting_days") - 2));
-                    if(loc.contains("TBA"))
+                    if(loc.contains("TBA") || loc.contains("null"))
                         loc = "Kellogg ";
                     
-                    String title = (line.substring(tIndex+9, t1Index-4));
+                    String title = (line.substring(tIndex+10, t1Index-3));
                      if(title.contains("ul"))
                             title = "No Title for this class";
                     String meetingDays = (line.substring(mdIndex+16, stIndex-4));
@@ -200,6 +200,5 @@ public class Team_Juliett_processor {
     }
 
 }
-
 
 

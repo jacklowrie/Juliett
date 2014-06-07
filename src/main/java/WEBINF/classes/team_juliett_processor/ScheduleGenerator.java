@@ -52,7 +52,7 @@ public class ScheduleGenerator
          }
         
         //Find the highest rank schedule the list based on rank
-        int highestRank = 0;
+        int highestRank = -100;
         int bestIndex = 0;
         for(int i = 0; i < poss.length; i++)
         {
