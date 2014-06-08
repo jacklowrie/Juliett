@@ -138,7 +138,7 @@
                     // CASE 2: Search form contains 'subject' and 'catalogNum' - search by BOTH
                 } else {
                     subject = subject.toUpperCase();
-                    Caesar.getCourses(4540, subject,
+                    Caesar.getCourses(4520, subject,
                     function(err, courses) {
 
                         // Iterate through the search results and store the top 10 values that match catalogNum
