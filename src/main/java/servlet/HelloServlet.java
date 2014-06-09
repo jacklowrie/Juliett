@@ -91,13 +91,27 @@ public class HelloServlet extends HttpServlet {
         
 
         manClass.removeAll(optClass);
-        int[] man = new int[manClass.size()];
+        
+        int[] man = {};
+        if (manClass.size() > 4) {
+        	man = new int[4];
+        }
+        else { 
+        	man = new int[manClass.size()];
+        }
         
         for (int i = 0; i < manClass.size() && i < 4; i++) {
         	man[i] = manClass.get(i);
         }
         
-        int[] opt = new int[optClass.size()];
+        int[] opt = {};
+        if (optClass.size() > 4) {
+        	opt = new int[optClass.size()];
+        }
+        else { 
+        	opt = new int[optClass.size()];
+        }
+        
         for (int i = 0; i < optClass.size() && i < 4; i++) {
         	opt[i] = optClass.get(i);
         }
