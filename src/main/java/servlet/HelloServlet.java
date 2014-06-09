@@ -106,7 +106,7 @@ public class HelloServlet extends HttpServlet {
         
         int[] opt = {};
         if (optClass.size() > 4) {
-        	opt = new int[optClass.size()];
+        	opt = new int[4];
         }
         else { 
         	opt = new int[optClass.size()];
